@@ -46,7 +46,7 @@ connection.query(usersTable, (err) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'ubahpw.html'));
 });
 
 app.post('/change-password', (req, res) => {
