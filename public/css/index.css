@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #254F68;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins';
+    height: 100vh;
+}
+
+.container{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-width: 45%;
+    border-radius: 30px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 35px;
+    background-color: rgba(255, 255, 255, 0.5)
+}
+
+h1{
+    font-size: 25px;
+    font-weight: 700;
+    color: #012338;
+}
+
+h4{
+    font-size: 15px;
+    font-weight: 500;
+    color: #012338;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+button{
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid;
+    border-color: white;
+    border-radius: 50px;
+    font-family: 'Poppins';
+    color: #033452;
+    font-weight: 700;
+    font-size: 17px;
+    text-align: start;
+}
+
+a{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.dosen{
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.dosen img{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 7%;
+}
+
+.mahasiswa{
+    display: flex;
+    align-items: center;
+}
+
+.mahasiswa img{
+    margin-left: 20px;
+    margin-right: 22px;
+    width: 6%;
+}
+
+.garis{
+    border-left: 1px solid;
+    border-color: #012338;
+    height: 25px;
+    margin-right: 20px;
+}
+
+button:hover{
+    border-width: 2px;
+    border-color: #033452;
+}

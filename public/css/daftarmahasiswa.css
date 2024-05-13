@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+    font-family: 'Poppins';
+    width: 100%;
+}
+
+.back h1{
+    font-weight: 800;
+    font-size: 25px;
+    color: black;
+    padding: 0px 12px;
+    background-color: #B1C6CB;
+    width: fit-content;
+    margin-left: 50px;
+    margin-top: 25px;
+    border-radius: 100px;
+}
+
+.back h1:hover{
+    background-color: #3E6174;
+    color: white;
+}
+
+h3{
+    margin-left: 30px;
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.tambah{
+    margin-left: auto;
+    margin-top: 25px;
+    margin-right: 50px;
+}
+
+.tambah h1{
+    font-weight: 600;
+    font-size: 25px;
+    color: black;
+    padding: 0px 10px;
+    border-width: 1.5px;
+    border-color: black;
+    border-style: solid;
+    width: fit-content;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.tambah h1:hover{
+    background-color: #3E6174;
+    color: white;
+    border-color: #3E6174;
+}
+
+.tambah span{
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+nav{
+    display: flex;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+}
+
+.content{
+    margin-top: 11%;
+    display: block;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.box{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 30px;
+    border-radius: 25px;
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: #B1C6CB;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.kiri{
+    margin-left: 35px;
+}
+
+.kanan{
+    position: relative;
+    right: 0;
+    margin-left: auto;
+}
+
+.content button{
+    padding: 10px 20px;
+    background-color: #3E6174;
+    border: 0;
+    border-radius: 25px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 13px;
+    color: white;
+}
+
+.content p{
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 3px;
+}
+
+.content button:hover{
+    background-color: #033452;
+}

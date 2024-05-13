@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: whitesmoke;
+    font-family: 'Poppins';
+    width: 100%;
+}
+
+.back h1{
+    font-weight: 800;
+    font-size: 25px;
+    color: black;
+    padding: 0px 12px;
+    background-color: #B1C6CB;
+    width: fit-content;
+    margin-left: 50px;
+    margin-top: 25px;
+    border-radius: 100px;
+}
+
+.back h1:hover{
+    background-color: #3E6174;
+    color: white;
+}
+
+h3{
+    margin-left: 30px;
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.selesai{
+    margin-left: auto;
+    margin-top: 25px;
+    margin-right: 50px;
+}
+
+.selesai button{
+    padding: 8px 15px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1.5px;
+    background-color: white;
+    border-color: #033452;
+    color: #033452;
+}
+
+.selesai button:hover{
+    background-color: #033452;
+    color: white;
+}
+
+nav{
+    display: flex;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+}
+
+main{
+    margin-top: 10%;
+    display: flex;
+}
+
+span{
+    font-weight: 400;
+}
+
+.profil{
+    font-weight: 600;
+    font-size: 14px;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 30px;
+    margin-left: 30px;
+}
+
+.profil img{
+    width: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.profil p{
+    margin-left: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.profil .atas{
+    display: flex;
+    justify-content: center;
+    background-color: #729098;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.profil .bawah{
+    padding: 20px;
+    background-color: white;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bawah{
+    display: flex;
+}
+
+.content{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+}
+
+.judul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: white;
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: #B1C6CB;
+    border-radius: 25px;
+    padding-bottom: 20px;
+}
+
+.progress{
+    display: block;
+    position: fixed;
+    background-color: whitesmoke;
+    width: 708px;
+    height: 380px;
+    margin-top: 15px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-width: 1.5px;
+    border-top: 0;
+    border-style: solid;
+    border-color: #B1C6CB;
+    overflow-y: auto;
+}
+
+.progress a{
+    color: black;
+}
+
+.progress .nav{
+    display: flex;
+    position: fixed;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 706px;
+    background-color: #729098;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    color: white;
+}
+
+.konten{
+    margin-top: 10%;
+}
+
+.isi{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.isi p{
+    font-size: 12px;
+}
+
+.isi:hover{
+    background-color: #E8EDEF;
+}
+
+
+

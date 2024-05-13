@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #254F68;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins';
+}
+
+.container{
+    display: flex;
+    max-width: 650px;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+}
+
+img{
+    width: 180px;
+    margin-top: 20px;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    font-family: 'Poppins';
+    font-size: 12px;
+    border-radius: 25px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: 0;
+    margin-top: 15px;
+    font-family: 'Poppins';
+    background-color: #729098;
+    color: white;
+    font-weight: 700;
+}
+
+button:hover{
+    background-color: #254F68;
+}
+
+h3{
+    font-size: 16px;
+    color: #012338;
+    margin-bottom: 10px;
+}
+
+.kiri{
+    display: block;
+    justify-content: center;
+    text-align: center;
+    width: 600px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background-color: #B1C6CB;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.kiri input{
+    border: 0;
+}
+
+.kanan{
+    display: block;
+    justify-content: center;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+p{
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #012338;
+    font-weight: 500;
+}
+
+a{
+    text-decoration: none;
+}
+
+span{
+    font-weight: 600;
+}

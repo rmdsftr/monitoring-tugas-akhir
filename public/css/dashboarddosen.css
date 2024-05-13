@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #254F68;
+    background-image: url(../gambar/bg\ db\ mhs.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Poppins';
+    display: flex;
+}
+
+.sidebar{
+    background-color: #254F68;
+    width: 25%;
+    height: 100vh;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: black;
+}
+
+.profil{
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    color: #B1C6CB;
+}
+
+.profil img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.profil img:hover{
+    border-width: 3px;
+    border-style: solid;
+    border-color: #729098;
+    border-radius: 100px;
+}
+
+.profil p{
+    font-size: 13px;
+}
+
+.garis{
+    border-width: 1px;
+    border-style: solid;
+    border-bottom: 25px;
+    color: #729098;
+}
+
+.menu{
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+.menu h4{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 35px;
+    background-color: #254F68;
+    color: white;
+    border-radius: 25px;
+}
+
+.menu h4:hover{
+    background-color: #729098;
+    color: #033452;
+}
+
+.logout{
+    position: fixed;
+    bottom: 0;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    margin-right: 0px;
+    font-weight: 600;
+    font-size: 13px;
+    padding-left: 35px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 50px;
+}
+
+.logout:hover{
+    color: #729098;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.welcome{
+    width: 100%;
+}
+
+h1{
+    color: white;
+    margin-top: 20%;
+    margin-left: 10%;
+    text-shadow: black;
+    font-size: 32px;
+}
+
+span{
+    color: #9FCEDB;
+}
+
+h5{
+    margin-left: 10%;
+    margin-top: 1%;
+    color: whitesmoke;
+    font-size: 15px;
+    font-weight: 400;
+}
