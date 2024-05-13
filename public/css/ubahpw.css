@@ -1,0 +1,81 @@
+body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-image: url(bg_ubahpw.jpeg);
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .container {
+        max-width: 600px;
+        width: 100%;
+        margin-top: 40px;
+        padding: 40px;
+        background-color: #729098;
+        border-radius: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        color:#fff
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        font-weight: bold;
+        font-size: medium;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+        width: calc(100% - 30px); /* Lebar input dikurangi margin */
+        padding: 10px;
+        margin-right: 10px; /* Jarak antara input dan checkbox Show Password */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 15px;
+        background-color: hsl(202, 48%, 28%);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold ;
+        font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+        font-style: italic;
+        font-size: medium;
+    }
+    
+    button:hover {
+        background-color: #25516a;
+    }
+    
+    .error-message {
+        color: red;
+        margin-top: 10px;
+        text-align: center;
+        display: none; /* Pesan kesalahan defaultnya disembunyikan */
+    }
+    
+    .show-password-label {
+        margin-left: 5px; /* Jarak antara checkbox Show Password dengan labelnya */
+    }
+    
+    .show-password-checkbox {
+        margin-top: 5px; /* Jarak antara checkbox Show Password dengan input sebelumnya */
+    }
+    
