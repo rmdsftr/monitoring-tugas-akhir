@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Mahasiswa</title>
+    <link rel="stylesheet" href="/css/loginmahasiswa.css">
+</head>
+<body>
+    <form action="auth/login" method="POST">
+        <div class="container">
+            <div class="kiri">
+                <img src="/gambar/FTI.png" alt="">
+                <h4>Fakultas Teknologi Informasi <br>Universitas Andalas</h4>
+            </div>
+            <div class="kanan">
+                <h3>Silahkan masuk ke akun Anda</h3>
+                <input type="text" name="nim" id="nim" placeholder="NIM">
+                <input type="password" name="password" id="password" placeholder="Kata sandi">
+                <div class="tanya">
+                    <p>Lupa kata sandi?</p>
+                </div>
+                <a href="dashboardmahasiswa"><button>MASUK</button></a>
+                <a href="registrasimahasiswa"><p>Belum punya akun? <span>Registrasi di sini</span></p></a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
