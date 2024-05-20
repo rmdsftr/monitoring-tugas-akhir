@@ -8,21 +8,21 @@
 </head>
 <body>
     <div class="back">
-        <a href="dashboardmahasiswa"><h1><</h1></a>
+        <a href="/dashboardmahasiswa"><h1><</h1></a>
     </div>
 
     <div class="container">
         <div class="atas">
             <img src="/gambar/profile icon.jpg" alt="">
-            <h4>[Nama mahasiswa]</h4>
-            <p>XXXXXXXXXXXXXXX</p>
-            <h6>[status bimbingan]</h6>
+            <h4>{{ nama_mahasiswa }}</h4>
+            <p>{{ nim }}</p>
+            <h6>{{ status_bimbingan }}</h6>
         </div>
         <div class="setting">
             <ul>
                 <li><a href=""><img src="/gambar/setting.png" alt=""></a>
                     <ul>
-                        <li><a href="">Ganti foto profil</a></li>
+                        <li><a href="/profil/editProfilMahasiswa">Edit profil</a></li>
                         <li><a href="">Ganti kata sandi</a></li>
                     </ul>
                 </li>
@@ -39,13 +39,13 @@
                 <p>telepon</p>
             </div>
             <div>
-                <p>: &ensp;<span>[judul tugas akhir mahasiswa]</span></p>
+                <p>: &ensp;<span>{{ judul }}</span></p>
                 <p>: &ensp;<span>[nama dosen pembimbing]</span></p>
-                <p>: &ensp;<span>Teknologi Informasi</span></p>
-                <p>: &ensp;<span>[nama departemen]</span></p>
-                <p>: &ensp;<span>[angka]</span></p>
-                <p>: &ensp;<span>[alamat email]</span></p>
-                <p>: &ensp;<span>[XXXXXXXXXXXXX]</span></p>
+                <p>: &ensp;<span>{{ fakultas }}</span></p>
+                <p>: &ensp;<span>{{ departemen }}</span></p>
+                <p>: &ensp;<span>{{ semester }}</span></p>
+                <p>: &ensp;<span>{{ email }}</span></p>
+                <p>: &ensp;<span>{{ telepon }}</span></p>
             </div>
         </div>
     </div>

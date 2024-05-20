@@ -3,7 +3,16 @@ const router = express.Router();
 
 
 router.get("/", (req, res) =>{
-  res.render("index");
+  console.log(req.session);
+  console.log(req.session.id);
+  res.render("index",{
+    nim: '2211522009',
+    nama_mahasiswa: 'ramadhani safitri'
+  });
+});
+
+router.get("/profilMahasiswa", (req, res)=>{
+  res.render("profilmahasiswa");
 });
 
 router.get("/logindosen", (req, res) =>{
@@ -43,7 +52,15 @@ router.get("/registrasimahasiswa", (req, res) => {
 });
 
 router.get("/dashboardmahasiswa", (req, res) => {
-  res.render("dashboardmahasiswa");
+  const nim = req.session.nim;
+  const nama_mahasiswa = req.session.nama_mahasiswa;
+  const gambar = req.session.gambar;
+  
+  res.render("dashboardmahasiswa",{
+    nim: nim,
+    nama_mahasiswa: nama_mahasiswa,
+    gambar : gambar
+  });
 });
 
 router.get("/profilmahasiswa", (req, res) => {

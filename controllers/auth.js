@@ -1,83 +1,94 @@
 const mysql = require("mysql");
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const { and } = require("sequelize");
+const { SELECT } = require("sequelize/lib/query-types");
 
 const db = mysql.createConnection({
     host : process.env.DATABASE_HOST,
     user : process.env.DATABASE_USER,
     password : process.env.DATABASE_PASSWORD,
     database : process.env.DATABASE
-  });
+});
 
-exports.register = (req, res) =>{
+
+exports.loginMahasiswa = (req, res) => {
     console.log(req.body);
 
-    const nama = req.body.nama;
-    const nim = req.body.nim;
-    const email = req.body.email;
-    const password = req.body.password;
+    if (!req.session) {
+        console.error("Sesi tidak didefinisikan");
+        return res.render("error", { message: "Internal server error" });
+    }
 
-    db.query('SELECT nim FROM mahasiswa WHERE nim =?', [nim], async (error, results) =>{
-        if(error){
-            console.log(error);
-        } 
-
-        if(results.length > 0){
-            console.log("NIM is already in use");
-            return res.render("registrasimahasiswa");
-        } else{
-            
-            let hashedPassword = await bcrypt.hash(password, 8);
-
-            db.query('INSERT INTO mahasiswa SET?',{nama_mahasiswa:nama, nim:nim, email:email, katasandi:hashedPassword}, (error, results) => {
-                if(error){
-                    console.log(error);
-                    return res.render("registrasimahasiswa");
-                } else{
-                    console.log(results);
-                    return res.render("dashboardmahasiswa");
-                }
-            })
-        }
-    })
-}
-
-exports.login = (req, res) => {
     const nim = req.body.nim;
     const password = req.body.password;
 
-    db.query('SELECT * FROM mahasiswa WHERE nim=?', [nim], async (error, results) => {
+    db.query('SELECT * FROM mahasiswa WHERE nim=?', [nim], (error, results) => {
         if (error) {
-            console.error("Error saat mencari akun:", error);
-            return res.status(500).send("Terjadi kesalahan saat mencari akun");
+            console.error(error);
         }
 
         if (results.length === 0) {
             console.log("Akun belum terdaftar");
-            return res.status(401).send("Akun belum terdaftar");
+            return res.render("loginmahasiswa");
         }
 
-        const user = results[0];
-        const hashedPassword = user.katasandi;
+        if(results.length > 0){
+            const user = results[0];
 
-        console.log("Hashed Password from Database:", hashedPassword);
-        console.log("Password yang Dimasukkan:", password);
+            if((nim == user.nim) && (password == user.katasandi)){
+                console.log("login berhasil")
 
-        bcrypt.compare(password, hashedPassword, (err, isMatch) => {
-            if (err) {
-                console.error("Error saat membandingkan password:", err);
-                return res.status(500).send("Terjadi kesalahan saat membandingkan password");
-            }
+                req.session.nim = user.nim;
+                req.session.nama_mahasiswa = user.nama_mahasiswa;
+                req.session.judul = user.judul_tugas_akhir;
+                req.session.status = user.status_bimbingan;
+                req.session.fakultas = user.fakultas;
+                req.session.departemen = user.departemen;
+                req.session.semester = user.semester;
+                req.session.email = user.email;
+                req.session.telepon = user.telepon;
+                req.session.gambar = user.gambar;
 
-            console.log("Apakah Password Cocok?", isMatch);
-
-            if (isMatch) {
-                console.log("Login berhasil");
-                return res.render("dashboardmahasiswa");
+                return res.render("dashboardmahasiswa",{
+                    nim: user.nim,
+                    nama_mahasiswa: user.nama_mahasiswa,
+                    gambar: user.gambar
+                })
             } else {
-                console.log("NIM atau password salah");
-                return res.status(401).send("NIM atau password salah");
+                console.log("username atau password salah");
+                return res.redirect("/loginmahasiswa");
             }
-        });
+        }
+
     });
-};
+}
+
+exports.loginDosen = (req, res) => {
+    console.log(req.body);
+
+    const nip = req.body.nip;
+    const password = req.body.password;
+
+    db.query('SELECT * FROM dosen WHERE nip=?',[nip], (error, results) => {
+        if(error){
+            console.log(error);
+        }
+
+        if(results.length === 0){
+            console.log("akun belum terdaftar");
+            return res.render("logindosen");
+        }
+
+        if(results.length > 0){
+            const user = results[0];
+
+            if((nip == user.nip) && (password == user.katasandi)){
+                console.log("login dosen berhasil")
+                return res.render("dashboarddosen");
+            } else {
+                console.log("NIP atau kata sandi salah");
+                return res.redirect("/logindosen");
+            }
+        }
+    })
+}

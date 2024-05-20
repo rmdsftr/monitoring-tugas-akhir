@@ -1,0 +1,7 @@
+POST http://localhost:3000/auth/loginMahasiswa
+Content-Type: application/json
+
+{
+    "nim" : "2211522009",
+    "katasandi" : "behelhijau"
+}

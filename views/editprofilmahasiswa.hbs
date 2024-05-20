@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit profil</title>
+    <link rel="stylesheet" href="/css/editprofilmahasiswa.css">
+</head>
+<body>
+
+    <form action="/profil/edit" method="POST">
+        <div class="container">
+            <div class="edit1">
+                <img src="/gambar/Rektorat View.jpg" alt="">
+                <div class="garis"></div>
+                <div>
+                    <label for="">Nama lengkap</label>
+                    <h3>{{ nama_mahasiswa }}</h3>
+                    <input type="hidden" name="nama_mahasiswa" value="{{ nama_mahasiswa }}">
+
+                    <label for="">NIM</label>
+                    <h3>{{ nim }}</h3>
+                    <input type="hidden" name="nim" value="{{ nim }}">
+
+                    <label for="">Status bimbingan</label>
+                    <h3>{{ status_bimbingan }}</h3>
+                    <input type="hidden" name="status_bimbingan" value="{{ status_bimbingan}}">
+
+                </div>
+            </div>
+            <div class="edit2">
+                <label for="">Judul Tugas Akhir</label>
+                <input type="text" value="{{ judul }}" name="judul">
+
+                <label for="">Dosen Pembimbing</label>
+                <input type="text">
+
+                <label for="">Fakultas</label>
+                <input type="text" value="{{ fakultas }}" name="fakultas">
+
+                <label for="">Departemen</label>
+                <select name="departemen" id="">
+                    <option value="{{ departemen }}">{{ departemen }}</option>
+                    <option value="Sistem Informasi">Sistem Informasi</option>
+                    <option value="Teknik Komputer">Teknik Komputer</option>
+                    <option value="Informatika">Informatika</option>
+                </select>
+
+                <label for="">Semester</label>
+                <select name="semester" id="">
+                    <option value="{{ semester }}">{{ semester }}</option>
+                    <option value="5 (lima)" >5 (lima)</option>
+                    <option value="6 (enam)" >6 (enam)</option>
+                    <option value="7 (tujuh)" >7 (tujuh)</option>
+                    <option value="8 (delapan)">8 (delapan)</option>
+                    <option value="9 (sembilan)">9 (sembilan)</option>
+                    <option value="10 (sepuluh)">10 (sepuluh)</option>
+                    <option value="11 (sebelas)">11 (sebelas)</option>
+                    <option value="12 (dua belas)">12 (dua belas)</option>
+                    <option value="13 (tiga belas)">13 (tiga belas)</option>
+                    <option value="14 (empat belas)">14 (empat belas)</option>
+                </select>
+
+                <label for="">Email</label>
+                <input type="text" value="{{ email }}" name="email">
+
+                <label for="">Nomor telepon</label>
+                <input type="text" name="telepon" id="" value="{{ telepon }}">
+
+                <div class="tombol">
+                    <button class="simpan" type="submit">SIMPAN</button>
+                    <a href="/profil/profilMahasiswa" class="kembali">Kembali</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -49,8 +49,10 @@ a{
 
 img{
     width: 100px;
+    height: 100px;
     margin-top: 20px;
     margin-bottom: 20px;
+    border-radius: 100px;
 }
 
 h4{
@@ -67,8 +69,8 @@ h6{
     background-color: #B1C6CB;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .setting{

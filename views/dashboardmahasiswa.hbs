@@ -9,9 +9,9 @@
 <body>
     <div class="sidebar">
         <div class="profil">
-            <a href="profilmahasiswa"><img src="/gambar/icon profile.png" alt=""></a>
-            <h4>Nama Mahasiswa</h4>
-            <p>NIM Mahasiswa</p>
+            <a href="/profil/profilMahasiswa"><img src="/gambar/profile icon.jpg" alt=""></a>
+            <h4>{{ nama_mahasiswa }}</h4>
+            <p>{{ nim }}</p>
         </div>
         <div class="garis"></div>
         <div class="menu">
@@ -24,7 +24,7 @@
     </div>
     
     <div class="welcome">
-        <h1>Halo, <span>[nama mahasiswa]</span>
+        <h1>Halo, <span>{{ nama_mahasiswa }}</span>
         <br>Ayo selesaikan Tugas Akhirmu
         <br>agar cepat lulus!
         </h1>
