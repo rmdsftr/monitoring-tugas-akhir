@@ -15,6 +15,7 @@
             </div>
             <div class="kanan">
                 <h3>LOGIN</h3>
+                {{#if error}} <p class="warning">{{ error }}</p>{{/if}}
                 <input type="text" name="nim" id="nim" placeholder="NIM">
                 <input type="password" name="password" id="password" placeholder="Kata sandi">
                 <div class="tanya">

@@ -7,6 +7,10 @@
 }
 
 body{
+    background-image: url('/gambar/Rektorat\ View.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: #254F68;
     display: flex;
     align-items: center;
@@ -25,7 +29,7 @@ body{
     justify-content: center;
     align-items: center;
     margin-bottom: 35px;
-    background-color: rgba(255, 255, 255, 0.5)
+    background-color: rgba(255, 255, 255, 0.6)
 }
 
 h1{

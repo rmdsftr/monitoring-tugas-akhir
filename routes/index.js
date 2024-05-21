@@ -44,7 +44,9 @@ router.get("/lihatprofilmahasiswa", (req, res) => {
 });
 
 router.get("/loginmahasiswa", (req, res) => {
-  res.render("loginmahasiswa");
+  const error = req.session.error;
+  req.session.error = null;
+  res.render("loginmahasiswa", {error : error});
 });
 
 router.get("/registrasimahasiswa", (req, res) => {

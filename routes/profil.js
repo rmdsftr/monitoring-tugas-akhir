@@ -3,6 +3,7 @@ const router = express.Router()
 const profilControllers = require('../controllers/profil');
 
 router.get('/profilMahasiswa', (req, res) =>{
+    const dosen = req.session.dosen;
     const nim = req.session.nim;
     const nama_mahasiswa = req.session.nama_mahasiswa;
     const judul = req.session.judul;
@@ -14,6 +15,7 @@ router.get('/profilMahasiswa', (req, res) =>{
     const status_bimbingan = req.session.status;
 
     res.render("profilmahasiswa",{
+        dosen : dosen,
         nim: nim,
         nama_mahasiswa: nama_mahasiswa,
         status_bimbingan : status_bimbingan,

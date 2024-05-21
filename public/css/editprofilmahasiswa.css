@@ -19,8 +19,7 @@ img{
     height: 200px;
     width: 200px;
     margin: 0 auto;
-    margin-bottom: 25px;
-    border-radius: 10px;
+    border-radius: 100px;
 }
 
 .container{
@@ -39,12 +38,38 @@ img{
     margin: auto 0;
     width: 100%;
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 25px;
 }
 
 .edit1 div{
     margin-top: 30px;
     margin-left: 10px;
+}
+
+.gantifoto input{
+    width: 100%;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+
+.gantifoto button{
+    width: 100%;
+    background-color: #729098;
+    color: white;
+    padding: 8px;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 500;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.gantifoto button:hover{
+    background-color: #254F68;
 }
 
 .garis{
@@ -64,7 +89,7 @@ img{
     margin-right: 10px;
 }
 
-input{
+.edit2 input{
     padding: 10px;
     width: 100%;
     border-width: 1px;
@@ -72,7 +97,7 @@ input{
     border-radius: 25px;
 }
 
-select{
+.edit2 select{
     padding: 10px;
     border-radius: 25px;
     font-size: 12px;
@@ -94,7 +119,7 @@ h3{
     justify-content: center;
 }
 
-button{
+.edit2 button{
     margin-top: 20px;
     border: 0;
     padding: 10px;

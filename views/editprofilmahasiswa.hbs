@@ -11,7 +11,15 @@
     <form action="/profil/edit" method="POST">
         <div class="container">
             <div class="edit1">
-                <img src="/gambar/Rektorat View.jpg" alt="">
+                <img src="/gambar/icon profile.png" alt="">
+
+                <form action="upload/avatar" method="POST" enctype="multipart/form-data">
+                    <div class="gantifoto">
+                        <input type="file" name="image" id="image">
+                        <button type="submit">Upload foto profil</button>
+                    </div>
+                </form>
+
                 <div class="garis"></div>
                 <div>
                     <label for="">Nama lengkap</label>
@@ -33,7 +41,7 @@
                 <input type="text" value="{{ judul }}" name="judul">
 
                 <label for="">Dosen Pembimbing</label>
-                <input type="text">
+                <input type="text" value="{{ dosen }}" name="dosen">
 
                 <label for="">Fakultas</label>
                 <input type="text" value="{{ fakultas }}" name="fakultas">

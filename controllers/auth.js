@@ -55,8 +55,9 @@ exports.loginMahasiswa = (req, res) => {
                     gambar: user.gambar
                 })
             } else {
-                console.log("username atau password salah");
-                return res.redirect("/loginmahasiswa");
+                console.log("NIM atau password salah");
+                req.session.error = "NIM atau kata sandi salah";
+                return res.redirect('/loginmahasiswa');
             }
         }
 

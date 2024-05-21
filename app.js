@@ -32,6 +32,7 @@ app.set('view engine', 'hbs');
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
 app.use('/profil', require('./routes/profil'));
+app.use('/upload', require('./routes/upload'));
 
 
 app.listen(3000, () =>{

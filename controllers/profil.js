@@ -10,6 +10,7 @@ const db = mysql.createConnection({
 exports.editProfilMahasiswa = (req, res) => {
     console.log(req.body);
 
+    const dosen = req.body.dosen;
     const nama = req.body.nama_mahasiswa;
     const nim = req.body.nim;
     const status_bimbingan = req.body.status_bimbingan;
@@ -25,6 +26,7 @@ exports.editProfilMahasiswa = (req, res) => {
             console.log(error);
         }
 
+        req.session.dosen = dosen;
         req.session.nama_mahasiswa = nama;
         req.session.nim = nim;
         req.session.status_bimbingan = status_bimbingan;
