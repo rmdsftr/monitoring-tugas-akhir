@@ -42,3 +42,37 @@ exports.editProfilMahasiswa = (req, res) => {
     });
 
 }
+
+exports.ubahpassword = (req, res) => {
+    const { nim, oldpassword, newpassword, confirmpassword } = req.body;
+
+    // Retrieve the current password from the primary database
+    db.query('SELECT password FROM mahasiswa WHERE nim = ?', [nim], (error, results) => {
+        if(error) {
+            console.error("Error retrieving current password from primary database:", error);
+            return res.status(500).send("Internal server error");
+        }
+
+        if(results.length === 0) {
+            return res.status(404).send("User not found");
+        }
+
+        const currentPassword = results[0].password;
+
+        // Compare the old password with the current password
+        if(old_password !== currentPassword) {
+            return res.status(400).send("Old password is incorrect");
+        }
+
+        // Update the password in the monitoring_ta database
+        monitoringDb.query('UPDATE mahasiswa SET password = ? WHERE nim = ?', [new_password, nim], (error, results) => {
+            if(error) {
+                console.error("Error updating password in monitoring_ta database:", error);
+                return res.status(500).send("Internal server error");
+            }
+
+            console.log("Password berhasil diperbarui di monitoring_ta database");
+            res.redirect("/profil/profilmahasiswa");
+        });
+    });
+}
