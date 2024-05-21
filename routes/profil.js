@@ -50,6 +50,7 @@ router.get('/editProfilMahasiswa', (req, res) =>{
     });
 });
 
+router.get('/ubahpassword', profilControllers.ubahpassword )
 router.post('/edit', profilControllers.editProfilMahasiswa);
 
 module.exports = router;
