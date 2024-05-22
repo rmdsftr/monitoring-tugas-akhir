@@ -3,7 +3,7 @@ const router = express.Router()
 const profilControllers = require('../controllers/profil');
 
 router.get('/profilMahasiswa', (req, res) =>{
-    const dosen = req.session.dosen;
+    const nama_dosen = req.session.dosen;
     const nim = req.session.nim;
     const nama_mahasiswa = req.session.nama_mahasiswa;
     const judul = req.session.judul;
@@ -15,7 +15,7 @@ router.get('/profilMahasiswa', (req, res) =>{
     const status_bimbingan = req.session.status;
 
     res.render("profilmahasiswa",{
-        dosen : dosen,
+        nama_dosen : nama_dosen,
         nim: nim,
         nama_mahasiswa: nama_mahasiswa,
         status_bimbingan : status_bimbingan,
@@ -29,6 +29,7 @@ router.get('/profilMahasiswa', (req, res) =>{
 });
 
 router.get('/editProfilMahasiswa', (req, res) =>{
+    const nama_dosen = req.session.dosen;
     const nim = req.session.nim;
     const nama_mahasiswa = req.session.nama_mahasiswa;
     const judul = req.session.judul;
@@ -40,6 +41,7 @@ router.get('/editProfilMahasiswa', (req, res) =>{
     const status = req.session.status;
 
     res.render("editprofilmahasiswa",{
+        nama_dosen: nama_dosen,
         nim: nim,
         nama_mahasiswa: nama_mahasiswa,
         judul : judul,
@@ -52,7 +54,18 @@ router.get('/editProfilMahasiswa', (req, res) =>{
     });
 });
 
-router.get('/ubahpassword', profilControllers.ubahpassword )
+router.get('/ubahpassword', (req, res)=>{
+    res.render("ubahpassword");
+});
+
+router.get('/edit', (req, res)=>{
+    const image = req.session.image;
+    res.render("editprofilmahasiswa",{
+        image: image
+    })
+})
+
+router.post('/ubahpassword', profilControllers.ubahpassword )
 router.post('/edit', profilControllers.editProfilMahasiswa);
 
 module.exports = router;

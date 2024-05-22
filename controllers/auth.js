@@ -38,22 +38,32 @@ exports.loginMahasiswa = (req, res) => {
             if((nim == user.nim) && (password == user.katasandi)){
                 console.log("login berhasil")
 
-                req.session.nim = user.nim;
-                req.session.nama_mahasiswa = user.nama_mahasiswa;
-                req.session.judul = user.judul_tugas_akhir;
-                req.session.status = user.status_bimbingan;
-                req.session.fakultas = user.fakultas;
-                req.session.departemen = user.departemen;
-                req.session.semester = user.semester;
-                req.session.email = user.email;
-                req.session.telepon = user.telepon;
-                req.session.gambar = user.gambar;
+                const query = 'SELECT dosen.nama_dosen FROM dosen JOIN mahasiswa_dibimbing ON dosen.nip = mahasiswa_dibimbing.nip JOIN mahasiswa ON mahasiswa.nim = mahasiswa_dibimbing.nim WHERE mahasiswa.nim=?';
+                db.query(query,[nim], (error, hasil)=>{
+                    if(error){
+                        console.log(error);
+                    }
+                    const dosen = hasil[0]
+                    req.session.dosen = dosen.nama_dosen;
 
-                return res.render("dashboardmahasiswa",{
-                    nim: user.nim,
-                    nama_mahasiswa: user.nama_mahasiswa,
-                    gambar: user.gambar
-                })
+                    req.session.nim = user.nim;
+                    req.session.nama_mahasiswa = user.nama_mahasiswa;
+                    req.session.judul = user.judul_tugas_akhir;
+                    req.session.status = user.status_bimbingan;
+                    req.session.fakultas = user.fakultas;
+                    req.session.departemen = user.departemen;
+                    req.session.semester = user.semester;
+                    req.session.email = user.email;
+                    req.session.telepon = user.telepon;
+                    req.session.gambar = user.gambar;
+
+                    return res.render("dashboardmahasiswa",{
+                        nim: user.nim,
+                        nama_mahasiswa: user.nama_mahasiswa,
+                        nama_dosen: dosen.nama_dosen
+                    });
+                });
+                
             } else {
                 console.log("NIM atau password salah");
                 req.session.error = "NIM atau kata sandi salah";

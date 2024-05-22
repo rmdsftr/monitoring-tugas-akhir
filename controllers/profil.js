@@ -10,7 +10,7 @@ const db = mysql.createConnection({
 exports.editProfilMahasiswa = (req, res) => {
     console.log(req.body);
 
-    const dosen = req.body.dosen;
+    const nama_dosen = req.session.dosen;
     const nama = req.body.nama_mahasiswa;
     const nim = req.body.nim;
     const status_bimbingan = req.body.status_bimbingan;
@@ -26,7 +26,7 @@ exports.editProfilMahasiswa = (req, res) => {
             console.log(error);
         }
 
-        req.session.dosen = dosen;
+        req.session.dosen = nama_dosen;
         req.session.nama_mahasiswa = nama;
         req.session.nim = nim;
         req.session.status_bimbingan = status_bimbingan;
@@ -44,10 +44,12 @@ exports.editProfilMahasiswa = (req, res) => {
 }
 
 exports.ubahpassword = (req, res) => {
-    const { nim, oldpassword, newpassword, confirmpassword } = req.body;
+    const nim = req.body.nim;
+    const oldPassword = req.body.oldPassword;
+    const newPassword = req.body.newPassword;
+    const confirmPassword = req.body.confirmPassword;
 
-    // Retrieve the current password from the primary database
-    db.query('SELECT password FROM mahasiswa WHERE nim = ?', [nim], (error, results) => {
+    db.query('SELECT katasandi FROM mahasiswa WHERE nim = ?', [nim], (error, results) => {
         if(error) {
             console.error("Error retrieving current password from primary database:", error);
             return res.status(500).send("Internal server error");
@@ -57,15 +59,13 @@ exports.ubahpassword = (req, res) => {
             return res.status(404).send("User not found");
         }
 
-        const currentPassword = results[0].password;
+        const currentPassword = results[0].katasandi;
 
-        // Compare the old password with the current password
-        if(old_password !== currentPassword) {
+        if(oldPassword !== currentPassword) {
             return res.status(400).send("Old password is incorrect");
         }
 
-        // Update the password in the monitoring_ta database
-        monitoringDb.query('UPDATE mahasiswa SET password = ? WHERE nim = ?', [new_password, nim], (error, results) => {
+        db.query('UPDATE mahasiswa SET katasandi = ? WHERE nim = ?', [newPassword, nim], (error, results) => {
             if(error) {
                 console.error("Error updating password in monitoring_ta database:", error);
                 return res.status(500).send("Internal server error");

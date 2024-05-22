@@ -56,12 +56,12 @@ router.get("/registrasimahasiswa", (req, res) => {
 router.get("/dashboardmahasiswa", (req, res) => {
   const nim = req.session.nim;
   const nama_mahasiswa = req.session.nama_mahasiswa;
-  const gambar = req.session.gambar;
+  const nama_dosen = req.session.dosen;
   
   res.render("dashboardmahasiswa",{
     nim: nim,
     nama_mahasiswa: nama_mahasiswa,
-    gambar : gambar
+    nama_dosen: nama_dosen
   });
 });
 
