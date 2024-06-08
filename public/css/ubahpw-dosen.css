@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+        font-family: 'Poppins';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #25516a;
+    }
+    
+    .container {
+        max-width: 600px;
+        width: 100%;
+        margin-top: 40px;
+        padding: 30px 60px;
+        background-color: white;
+        border-radius: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        font-family: 'Poppins';
+        color:#fff
+    }
+    
+    .edit1 {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        font-weight: 600;
+        font-size: 13px;
+        font-family: 'Poppins';
+        margin-top: 15px;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+        width: 300px;
+        padding: 10px;
+        margin-right: 10px; /* Jarak antara input dan checkbox Show Password */
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        font-family: 'Poppins';
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #729098;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold ;
+        font-family:'Poppins';
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    button:hover {
+        background-color: #25516a;
+    }
+
+    a{
+        text-decoration: none;
+        color: #25516a;
+        font-size: 13px;
+        font-weight: 500;
+        margin-left: 130px;
+    }
+
+    a:hover{
+        font-weight: 600;
+    }
+    
+    .error-message {
+        color: red;
+        margin-top: 10px;
+        text-align: center;
+        display: none; /* Pesan kesalahan defaultnya disembunyikan */
+    }
+    
+    .show-password-label {
+        margin-left: 5px; /* Jarak antara checkbox Show Password dengan labelnya */
+    }
+    
+    .show-password-checkbox {
+        margin-top: 5px; /* Jarak antara checkbox Show Password dengan input sebelumnya */
+    }
+    

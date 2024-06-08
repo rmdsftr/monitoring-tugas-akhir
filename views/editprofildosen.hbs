@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit profil</title>
+    <link rel="stylesheet" href="/css/editprofildosen.css">
+</head>
+<body>
+
+    <form action="/profil/edit-dosen" method="POST">
+        <div class="container">
+            <div class="edit1">
+                <img src="/gambar/icon profile.png" alt="">
+
+                <form action="/upload/avatar" method="POST" enctype="multipart/form-data">
+                    <div class="gantifoto">
+                        <input type="file" name="image" id="image">
+                        <button type="submit">Upload foto profil</button>
+                    </div>
+                </form>
+
+                <div class="garis"></div>
+                <div>
+                    <label for="">Nama lengkap</label>
+                    <h3>{{ nama_dosen }}</h3>
+                    <input type="hidden" name="nama_dosen" value="{{ nama_dosen }}">
+
+                    <label for="">NIP</label>
+                    <h3>{{ nip }}</h3>
+                    <input type="hidden" name="nip" value="{{ nip }}">
+
+                </div>
+            </div>
+            <div class="edit2">
+
+                <label for="">Gelar</label>
+                <input type="text" name="gelar" value="{{ gelar }}">
+
+                <label for="">Jabatan</label>
+                <input type="text" value="{{ jabatan }}" name="jabatan">
+
+                <label for="">Fakultas</label>
+                <input type="text" value="{{ fakultas }}" name="fakultas">
+
+                <label for="">Departemen</label>
+                <select name="departemen" id="">
+                    <option value="{{ departemen }}">{{ departemen }}</option>
+                    <option value="Sistem Informasi">Sistem Informasi</option>
+                    <option value="Teknik Komputer">Teknik Komputer</option>
+                    <option value="Informatika">Informatika</option>
+                </select>
+
+                <label for="">Email</label>
+                <input type="text" value="{{ email }}" name="email">
+
+                <label for="">Nomor telepon</label>
+                <input type="text" name="telepon" id="" value="{{ telepon }}">
+
+                <div class="tombol">
+                    <button class="simpan" type="submit">SIMPAN</button>
+                    <a href="/profil/profilDosen" class="kembali">Kembali</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

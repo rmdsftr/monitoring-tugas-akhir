@@ -14,7 +14,8 @@
                 <h4>Fakultas Teknologi Informasi <br>Universitas Andalas</h4>
             </div>
             <div class="kanan">
-                <h3>Silahkan masuk ke akun Anda</h3>
+                <h3>LOGIN</h3>
+                {{#if error}} <p class="warning">{{ error }}</p>{{/if}}
                 <input type="text" name="nip" id="nip" placeholder="NIP">
                 <input type="password" name="password" id="password" placeholder="Kata sandi">
                 <div class="tanya">

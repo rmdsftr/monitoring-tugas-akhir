@@ -9,9 +9,9 @@
 <body>
     <div class="sidebar">
         <div class="profil">
-            <a href="profildosen"><img src="/gambar/icon profile.png" alt=""></a>
-            <h4>Nama dosen</h4>
-            <p>xxxxxxxxx</p>
+            <a href="/profil/profilDosen"><img src="/gambar/icon profile.png" alt=""></a>
+            <h4>{{ nama_dosen }}</h4>
+            <p>{{ nip }}</p>
         </div>
         <div class="garis"></div>
         <div class="menu">
@@ -21,11 +21,11 @@
             <a href=""><h4>Penjadwalan</h4></a>
             <a href=""><h4>Chat</h4></a>
         </div>
-        <a href=""><h4 class="logout">Logout</h4></a>
+        <a href="/auth/logout"><h4 class="logout">Logout</h4></a>
     </div>
     
     <div class="welcome">
-        <h1>Selamat datang, <span>[nama dosen]</span>
+        <h1>Selamat datang, <span>{{ nama_dosen }}</span>
         <br>Pantau progress Tugas Akhir
         <br>Mahasiswa bimbinganmu di sini!
         </h1>

@@ -1,7 +1,4 @@
 const mysql = require("mysql");
-const bcrypt = require("bcryptjs");
-const { and } = require("sequelize");
-const { SELECT } = require("sequelize/lib/query-types");
 
 const db = mysql.createConnection({
     host : process.env.DATABASE_HOST,
@@ -11,14 +8,14 @@ const db = mysql.createConnection({
 });
 
 
-exports.loginMahasiswa = (req, res) => {
+
+exports.loginMahasiswa = async (req, res) => {
     console.log(req.body);
 
-    if (!req.session) {
-        console.error("Sesi tidak didefinisikan");
-        return res.render("error", { message: "Internal server error" });
-    }
-
+    if(req.session && req.session.nim){
+        return res.render("dashboardmahasiswa");
+    } else {
+    
     const nim = req.body.nim;
     const password = req.body.password;
 
@@ -38,7 +35,7 @@ exports.loginMahasiswa = (req, res) => {
             if((nim == user.nim) && (password == user.katasandi)){
                 console.log("login berhasil")
 
-                const query = 'SELECT dosen.nama_dosen FROM dosen JOIN mahasiswa_dibimbing ON dosen.nip = mahasiswa_dibimbing.nip JOIN mahasiswa ON mahasiswa.nim = mahasiswa_dibimbing.nim WHERE mahasiswa.nim=?';
+                const query = 'SELECT dosen.nama_dosen FROM dosen JOIN mahasiswa ON dosen.nip = mahasiswa.nip WHERE mahasiswa.nim=?';
                 db.query(query,[nim], (error, hasil)=>{
                     if(error){
                         console.log(error);
@@ -70,9 +67,11 @@ exports.loginMahasiswa = (req, res) => {
                 return res.redirect('/loginmahasiswa');
             }
         }
-
+    
     });
+    }
 }
+
 
 exports.loginDosen = (req, res) => {
     console.log(req.body);
@@ -93,13 +92,33 @@ exports.loginDosen = (req, res) => {
         if(results.length > 0){
             const user = results[0];
 
-            if((nip == user.nip) && (password == user.katasandi)){
+            req.session.nip = user.nip;
+            req.session.nama_dosen = user.nama_dosen;
+            req.session.gelar = user.gelar;
+            req.session.fakultas = user.fakultas;
+            req.session.departemen = user.departemen;
+            req.session.jabatan = user.jabatan;
+            req.session.email = user.email;
+            req.session.telepon = user.telepon;
+            req.session.gambar = user.gambar;
+
+            if((nip == user.nip) && (password == user.password)){
                 console.log("login dosen berhasil")
-                return res.render("dashboarddosen");
+                return res.render("dashboarddosen",{
+                    nip:user.nip,
+                    nama_dosen: user.nama_dosen
+                });
             } else {
                 console.log("NIP atau kata sandi salah");
+                req.session.error = "NIP atau kata sandi salah";
                 return res.redirect("/logindosen");
             }
         }
     })
+}
+
+
+exports.logout = (req, res) => {
+    req.session.destroy();
+    return res.render("index");
 }

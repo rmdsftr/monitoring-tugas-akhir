@@ -8,28 +8,27 @@
 </head>
 <body>
     <div class="back">
-        <a href="dashboarddosen"><h1><</h1></a>
+        <a href="/dashboarddosen"><h1><</h1></a>
     </div>
 
     <div class="container">
         <div class="atas">
             <img src="/gambar/profile icon.jpg" alt="">
-            <h4>[Nama dosen]</h4>
-            <p>XXXXXXXXXXXXXXX</p>
+            <h4>{{ nama_dosen }}</h4>
+            <p>{{ nip }}</p>
         </div>
         <div class="setting">
             <ul>
                 <li><a href=""><img src="/gambar/setting.png" alt=""></a>
                     <ul>
-                        <li><a href="">Ganti foto profil</a></li>
-                        <li><a href="">Ganti kata sandi</a></li>
+                        <li><a href="/profil/editprofildosen">Edit profil</a></li>
+                        <li><a href="/profil/ubah-password-dosen">Ganti kata sandi</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
         <div class="bawah">
             <div>
-                <p>Bidang keahlian</p>
                 <p>Gelar akademik</p>
                 <p>Fakultas</p>
                 <p>Departemen</p>
@@ -38,13 +37,12 @@
                 <p>telepon</p>
             </div>
             <div>
-                <p>: &ensp;<span>[bidang keahlian]</span></p>
-                <p>: &ensp;<span>[gelar akademik]</span></p>
-                <p>: &ensp;<span>Teknologi Informasi</span></p>
-                <p>: &ensp;<span>[nama departemen]</span></p>
-                <p>: &ensp;<span>[nama jabatan]</span></p>
-                <p>: &ensp;<span>[alamat email]</span></p>
-                <p>: &ensp;<span>[XXXXXXXXXXXXX]</span></p>
+                <p>: &ensp;<span>{{ gelar }}</span></p>
+                <p>: &ensp;<span>{{ fakultas }}</span></p>
+                <p>: &ensp;<span>{{ departemen }}</span></p>
+                <p>: &ensp;<span>{{ jabatan }}</span></p>
+                <p>: &ensp;<span>{{ email }}</span></p>
+                <p>: &ensp;<span>{{ telepon }}</span></p>
             </div>
         </div>
     </div>

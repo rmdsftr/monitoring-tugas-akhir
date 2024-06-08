@@ -54,8 +54,56 @@ router.get('/editProfilMahasiswa', (req, res) =>{
     });
 });
 
+router.get("/profilDosen", (req, res) => {
+    const nama_dosen = req.session.nama_dosen;
+    const nip = req.session.nip;
+    const gelar = req.session.gelar;
+    const fakultas = req.session.fakultas;
+    const departemen = req.session.departemen;
+    const jabatan = req.session.jabatan;
+    const email = req.session.email;
+    const telepon = req.session.telepon;
+    res.render("profildosen",{
+        nama_dosen: nama_dosen,
+        nip: nip,
+        gelar: gelar,
+        fakultas: fakultas,
+        departemen: departemen,
+        jabatan: jabatan,
+        email: email,
+        telepon: telepon
+    });
+  });
+
+router.get("/editprofildosen", (req, res) => {
+    const nip = req.session.nip;
+    const nama_dosen = req.session.nama_dosen;
+    const gelar = req.session.gelar;
+    const fakultas = req.session.fakultas;
+    const departemen = req.session.departemen;
+    const jabatan = req.session.jabatan;
+    const email = req.session.email;
+    const telepon = req.session.telepon;
+
+    res.render("editprofildosen", {
+        nip : nip,
+        nama_dosen: nama_dosen,
+        gelar: gelar,
+        fakultas: fakultas,
+        departemen: departemen,
+        jabatan: jabatan,
+        email: email,
+        telepon: telepon,
+    })
+})
+
+
 router.get('/ubahpassword', (req, res)=>{
     res.render("ubahpassword");
+});
+
+router.get('/ubah-password-dosen', (req, res)=>{
+    res.render("ubah-password-dosen");
 });
 
 router.get('/edit', (req, res)=>{
@@ -65,7 +113,9 @@ router.get('/edit', (req, res)=>{
     })
 })
 
-router.post('/ubahpassword', profilControllers.ubahpassword )
+router.post('/ubahpassword', profilControllers.ubahpassword);
+router.post('/ubahpassword-dosen', profilControllers.ubahpasswordDosen);
 router.post('/edit', profilControllers.editProfilMahasiswa);
+router.post('/edit-dosen', profilControllers.editProfilDosen);
 
 module.exports = router;

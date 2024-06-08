@@ -4,31 +4,40 @@ const router = express.Router();
 
 router.get("/", (req, res) =>{
   console.log(req.session);
-  console.log(req.session.id);
-  res.render("index",{
-    nim: '2211522009',
-    nama_mahasiswa: 'ramadhani safitri'
-  });
+  res.render("index");
 });
 
-router.get("/profilMahasiswa", (req, res)=>{
-  res.render("profilmahasiswa");
+router.get("/loginmahasiswa", (req, res) => {
+    const error = req.session.error;
+    req.session.error = null;
+    res.render("loginmahasiswa", {error : error});
+});
+
+router.get("/dashboardmahasiswa", (req, res) => {
+    const nim = req.session.nim;
+    const nama_mahasiswa = req.session.nama_mahasiswa;
+    const nama_dosen = req.session.dosen;
+    
+    res.render("dashboardmahasiswa",{
+      nim: nim,
+      nama_mahasiswa: nama_mahasiswa,
+      nama_dosen: nama_dosen
+    });
 });
 
 router.get("/logindosen", (req, res) =>{
-  res.render("logindosen");
-});
-
-router.get("/registerdosen", (req, res) =>{
-  res.render("registerdosen");
+  const error = req.session.error;
+  req.session.error = null;
+  res.render("logindosen", {error: error});
 });
 
 router.get("/dashboarddosen", (req, res) => {
-  res.render("dashboarddosen");
-});
-
-router.get("/profildosen", (req, res) => {
-  res.render("profildosen");
+  const nip = req.session.nip;
+  const nama_dosen = req.session.nama_dosen;
+  res.render("dashboarddosen",{
+    nip: nip,
+    nama_dosen: nama_dosen
+  });
 });
 
 router.get("/daftarmahasiswa", (req,res) => {
@@ -41,32 +50,6 @@ router.get("/namamahasiswa", (req, res) => {
 
 router.get("/lihatprofilmahasiswa", (req, res) => {
   res.render("lihatprofilmahasiswa");
-});
-
-router.get("/loginmahasiswa", (req, res) => {
-  const error = req.session.error;
-  req.session.error = null;
-  res.render("loginmahasiswa", {error : error});
-});
-
-router.get("/registrasimahasiswa", (req, res) => {
-  res.render("registrasimahasiswa");
-});
-
-router.get("/dashboardmahasiswa", (req, res) => {
-  const nim = req.session.nim;
-  const nama_mahasiswa = req.session.nama_mahasiswa;
-  const nama_dosen = req.session.dosen;
-  
-  res.render("dashboardmahasiswa",{
-    nim: nim,
-    nama_mahasiswa: nama_mahasiswa,
-    nama_dosen: nama_dosen
-  });
-});
-
-router.get("/profilmahasiswa", (req, res) => {
-  res.render("profilmahasiswa");
 });
 
 module.exports = router;

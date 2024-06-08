@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #254F68;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-size: 12px;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 100px;
+}
+
+.container{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: flex;
+    background-color: white;
+    padding: 30px;
+    width: 800px;
+    border-radius: 50px;
+}
+
+.edit1{
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 25px;
+}
+
+.edit1 div{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.gantifoto input{
+    width: 100%;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+
+.gantifoto button{
+    width: 100%;
+    background-color: #729098;
+    color: white;
+    padding: 8px;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 500;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.gantifoto button:hover{
+    background-color: #254F68;
+}
+
+.garis{
+    border-width: 1px;
+    border-style: solid;
+    width: 95%;
+    margin: auto;
+    border-color: #c9d8dc;
+}
+
+.edit2{
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.edit2 input{
+    padding: 10px;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 25px;
+}
+
+.edit2 select{
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-family: 'Poppins';
+}
+
+label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+h3{
+    margin-bottom: 15px;
+}
+
+.tombol{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.edit2 button{
+    margin-top: 20px;
+    border: 0;
+    padding: 10px;
+    border-radius: 25px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.simpan{
+    width: 50%;
+    margin-right: 5px;
+    background-color: #729098;
+    color: white;
+}
+
+.simpan:hover{
+    background-color: #254F68;
+}
+
+.kembali{
+    width: 50%;
+    background-color: #E8EDEF;
+}
+
+.kembali:hover{
+    background-color: #254F68;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: #254F68;
+    font-weight: 500;
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 25px;
+}
