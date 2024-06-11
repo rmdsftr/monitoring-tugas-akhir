@@ -4,7 +4,16 @@ const router = express.Router();
 
 router.get("/", (req, res) =>{
   console.log(req.session);
-  res.render("index");
+
+  if(req.session && req.session.nip){
+    res.render("dashboarddosen",{
+      nip: req.session.nip,
+      nama_dosen: req.session.nama_dosen,
+      jumlah: req.session.jumlah
+    })
+  } else {
+    res.render("index");
+  }
 });
 
 router.get("/loginmahasiswa", (req, res) => {
@@ -40,16 +49,5 @@ router.get("/dashboarddosen", (req, res) => {
   });
 });
 
-router.get("/daftarmahasiswa", (req,res) => {
-  res.render("daftarmahasiswa");
-});
-
-router.get("/namamahasiswa", (req, res) => {
-  res.render("namamahasiswa");
-});
-
-router.get("/lihatprofilmahasiswa", (req, res) => {
-  res.render("lihatprofilmahasiswa");
-});
 
 module.exports = router;

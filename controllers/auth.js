@@ -76,6 +76,14 @@ exports.loginMahasiswa = async (req, res) => {
 exports.loginDosen = (req, res) => {
     console.log(req.body);
 
+    if(req.session && req.session.nip){
+        res.render("dashboarddosen", {
+            nip: req.session.nip,
+            nama_dosen: req.session.nama_dosen,
+            jumlah: req.session.jumlah
+        })
+    }
+
     const nip = req.body.nip;
     const password = req.body.password;
 
@@ -86,39 +94,49 @@ exports.loginDosen = (req, res) => {
 
         if(results.length === 0){
             console.log("akun belum terdaftar");
-            return res.render("logindosen");
+            req.session.error = "Akun belum terdaftar";
+            return res.redirect("/logindosen");
         }
 
         if(results.length > 0){
             const user = results[0];
 
-            req.session.nip = user.nip;
-            req.session.nama_dosen = user.nama_dosen;
-            req.session.gelar = user.gelar;
-            req.session.fakultas = user.fakultas;
-            req.session.departemen = user.departemen;
-            req.session.jabatan = user.jabatan;
-            req.session.email = user.email;
-            req.session.telepon = user.telepon;
-            req.session.gambar = user.gambar;
+            const query = 'SELECT COUNT(*) as jumlah FROM mahasiswa WHERE nip=?';
+            db.query(query, [user.nip], (err, countResult) =>{
 
-            if((nip == user.nip) && (password == user.password)){
-                console.log("login dosen berhasil")
-                return res.render("dashboarddosen",{
-                    nip:user.nip,
-                    nama_dosen: user.nama_dosen
-                });
-            } else {
-                console.log("NIP atau kata sandi salah");
-                req.session.error = "NIP atau kata sandi salah";
-                return res.redirect("/logindosen");
-            }
+                const jumlah = countResult[0].jumlah;
+
+                req.session.jumlah = jumlah;
+                req.session.nip = user.nip;
+                req.session.nama_dosen = user.nama_dosen;
+                req.session.gelar = user.gelar;
+                req.session.fakultas = user.fakultas;
+                req.session.departemen = user.departemen;
+                req.session.jabatan = user.jabatan;
+                req.session.email = user.email;
+                req.session.telepon = user.telepon;
+                req.session.gambar = user.gambar;
+
+                if((nip == user.nip) && (password == user.password)){
+                    console.log("login dosen berhasil")
+                    return res.render("dashboarddosen",{
+                        nip:user.nip,
+                        nama_dosen: user.nama_dosen,
+                        jumlah: jumlah
+                    });
+                } else {
+                    console.log("NIP atau kata sandi salah");
+                    req.session.error = "NIP atau kata sandi salah";
+                    return res.redirect("/logindosen");
+                }
+            })
         }
     })
 }
 
 
-exports.logout = (req, res) => {
+exports.logoutDosen = (req, res) => {
     req.session.destroy();
-    return res.render("index");
+    res.clearCookie('connect.sid');
+    return res.redirect("/");
 }

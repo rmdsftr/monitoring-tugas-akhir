@@ -9,7 +9,7 @@
 <body>
     <nav>
         <div class="back">
-            <a href="namamahasiswa"><h1><</h1></a>
+            <a href="javascript:void(0)" onclick="goBack()"><h1><</h1></a>
         </div>
         <h3>Profil Mahasiswa</h3>
         <div class="selesai">
@@ -20,26 +20,32 @@
     <main>
         <div class="profil">
             <div class="atas">
-                <img src="{{ image }}" alt="">
+                <img src="/gambar/icon profile.png" alt="">
             </div>
             <div class="bawah">
                 <div>
                     <p>NIM</p>
                     <p>Nama</p>
                     <p>Semester</p>
+                    <p>Angkatan</p>
                     <p>Status bimbingan</p>
                 </div>
                 <div>
-                    <p>: &ensp; <span>XXXXXXXXXX</span></p>
-                    <p>: &ensp; <span>[nama mahasiswa]</span></p>
-                    <p>: &ensp; <span>[XX (nama angka)]</span></p>
-                    <p>: &ensp; <span>status bimbingan</span></p>
+                    {{#each profilMahasiswa}}
+                    <p>: &ensp; <span>{{ this.nim }}</span></p>
+                    <p>: &ensp; <span>{{ this.nama_mahasiswa }}</span></p>
+                    <p>: &ensp; <span>{{ this.semester }}</span></p>
+                    <p>: &ensp; <span>{{ this.angkatan }}</span></p>
+                    <p>: &ensp; <span>{{ this.status_bimbingan }}</span></p>
+                    {{/each}}
                 </div>
             </div>
         </div>
         <div class="content">
             <div class="judul">
-                <h3>[judul tugas akhir mahasiswa]</h3>
+                {{#each profilMahasiswa}}
+                <h3>{{ this.judul_tugas_akhir }}</h3>
+                {{/each}}
             </div>
             <div class="progress">
                 <div class="nav">
@@ -104,6 +110,12 @@
             </div>
         </div>
     </main>
+
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+    </script>
     
 </body>
 </html>

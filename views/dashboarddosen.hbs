@@ -15,13 +15,13 @@
         </div>
         <div class="garis"></div>
         <div class="menu">
-            <a href="daftarmahasiswa"><h4>Daftar mahasiswa</h4></a>
+            <a href="/list/daftarmahasiswa"><h4>Daftar mahasiswa</h4></a>
             <a href=""><h4>Progress mahasiswa</h4></a>
             <a href=""><h4>Notifikasi</h4></a>
             <a href=""><h4>Penjadwalan</h4></a>
             <a href=""><h4>Chat</h4></a>
         </div>
-        <a href="/auth/logout"><h4 class="logout">Logout</h4></a>
+        <a href="/auth/logout-dosen"><h4 class="logout">Logout</h4></a>
     </div>
     
     <div class="welcome">
@@ -29,7 +29,7 @@
         <br>Pantau progress Tugas Akhir
         <br>Mahasiswa bimbinganmu di sini!
         </h1>
-        <h5>Ada <span>XX mahasiswa</span> yang sedang menunggu responmu
+        <h5>Ada <span>{{ jumlah }} mahasiswa</span> yang sedang menunggu responmu
         <br>untuk revisi tugas akhir mereka
         </h5>
     </div>

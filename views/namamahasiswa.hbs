@@ -9,7 +9,7 @@
 <body>
     <nav>
         <div class="back">
-            <a href="daftarmahasiswa"><h1><</h1></a>
+            <a href="javascript:void(0)" onclick="goBack()"><h1><</h1></a>
         </div>
         <h3>Mahasiswa yang dibimbing</h3>
         <div class="search">
@@ -21,8 +21,7 @@
     <div class="content">
         <div class="box">
             <div class="kiri">
-                <h4>Angkatan 20XX</h4>
-                <p><span>XX</span> Mahasiswa</p>
+                <h4>Angkatan {{ angkatan }}</h4>
             </div>
             <div class="kanan">
                 <a href=""><button>Daftarkan Mahasiswa</button></a>
@@ -34,20 +33,29 @@
         <thead>
             <th>NIM</th>
             <th>Nama mahasiswa</th>
-            <th>Waktu enrol</th>
+            <th>Tanggal didaftarkan</th>
             <th>Status bimbingan</th>
             <th>Aksi</th>
         </thead>
+    
         <tbody>
+            {{#each listMahasiswa}}
             <tr>
-                <td>XXXXXXXXXX</td>
-                <td>[nama mahasiswa]</td>
-                <td>dd:MM:yyyy hh:mm</td>
-                <td>Sedang masa bimbingan</td>
-                <td><a href="lihatprofilmahasiswa"><button>Lihat profil</button></a></td>
+                <td>{{ this.nim }}</td>
+                <td>{{ this.nama_mahasiswa }}</td>
+                <td>{{ this.tanggal_didaftarkan }}</td>
+                <td>{{ this.status_bimbingan }}</td>
+                <td><a href="/list/nim/{{ this.nim }}"><button>Lihat profil</button></a></td>
             </tr>
+            {{/each}}
         </tbody>
     </table>
+
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+    </script>
     
 </body>
 </html>
