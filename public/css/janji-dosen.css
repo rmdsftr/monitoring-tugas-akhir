@@ -81,6 +81,7 @@ nav{
 
 form{
     margin-top: 10%;
+    margin-bottom: 50px;
     background-color: white;
     border-radius: 10px;
     width: 90%;
@@ -130,20 +131,13 @@ form{
 
 .nama{
     display: flex;
-    margin-left: 5px;
-    max-width: 75%;
+    margin-left: 10px;
 }
 
 .nama p{
     font-family: 'Poppins';
     font-size: 12px;
-    color: #729098;
-    padding: 5px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #729098;
-    border-radius: 5px;
-    margin: 2px 5px;
+    color: #3E6174;
 }
 
 input{

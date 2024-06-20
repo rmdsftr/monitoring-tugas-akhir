@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Mendatang</title>
+    <link rel="stylesheet" href="/css/janji-mendatang.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="back">
+            <a href="javascript:void(0)" onclick="goBack()">
+                <img src="/gambar/left.png" alt="">
+            </a>
+        </div>
+        <div class="menu">
+            <a href="">Buat Janji</a>
+            <a href="">Hari Ini</a>
+            <a href="" class="active">Mendatang</a>
+            <a href="">Riwayat Pertemuan</a>
+        </div>
+    </nav>
+
+    <table>
+        <thead>
+            <th>NIM</th>
+            <th>Nama mahasiswa</th>
+            <th>Tanggal</th>
+            <th>Waktu</th>
+            <th>Tempat</th>
+            <th>Status</th>
+            <th>Opsi</th>
+        </thead>
+    
+        <tbody>
+            {{#each listJadwal}}
+            <tr>
+                <td><p>{{ this.nim }}</p></td>
+                <td><p>{{ this.nama_mahasiswa }}</p></td>
+                <td><p class="tanggal">{{ this.tanggal }}</p></td>
+                <td><p class="waktu">{{ this.waktu }}</p></td>
+                <td><p>{{ this.tempat }}</p></td>
+                <td><p>{{ this.status_mahasiswa }}</p></td>
+                <td><button>Lihat detail</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tanggalElements = document.querySelectorAll('.tanggal');
+            tanggalElements.forEach(function (el) {
+                const originalDate = new Date(el.textContent);
+                const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                el.textContent = originalDate.toLocaleDateString('id-ID', options);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const waktuElements = document.querySelectorAll('.waktu');
+            waktuElements.forEach(function (el) {
+                const originalTime = el.textContent;
+                const formattedTime = originalTime.slice(0, 5).replace(':', '.') + ' WIB';
+                el.textContent = formattedTime;
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -16,7 +16,7 @@
         <div class="menu">
             <a href="" class="active">Buat Janji</a>
             <a href="">Hari Ini</a>
-            <a href="">Mendatang</a>
+            <a href="/penjadwalan/jadwal-mendatang">Mendatang</a>
             <a href="">Riwayat Pertemuan</a>
         </div>
     </nav>
@@ -25,34 +25,82 @@
         <div class="input">
             <label for="">Mahasiswa</label>
             <div class="add">
-                <button>+</button>
+                <button type="button" onclick="navigateTo()">+</button>
                 <div class="nama">
-                    <p>mahasiswa 1</p>
-                    <p>mahasiswa 2</p>
-                    <p>mahasiswa 3</p>
-                    <p>mahasiswa 4</p>
-                    <p>mahasiswa 5</p>
+                    <p>[jumlah mahasiswa]</p>
                 </div>
             </div>
         </div>
         <div class="input">
             <label for="">Tanggal</label>
-            <input type="date">
+            <input type="date" id="tanggal">
         </div>
         <div class="input">
             <label for="">Waktu</label>
-            <input type="time">
+            <input type="time" id="waktu">
         </div>
         <div class="input">
             <label for="">Tempat</label>
-            <input type="text">
+            <input type="text" id="tempat">
         </div>
         <div class="input">
-            <label for="">Pesan untuk dosen</label>
-            <textarea name="" id="" rows="8"></textarea>
+            <label for="">Pesan untuk mahasiswa</label>
+            <textarea name="" id="pesan" rows="8"></textarea>
         </div>
-        <button type="submit" class="kirim">KIRIM</button>
+        <button type="button" id="kirim" class="kirim">KIRIM</button>
     </form>
+
+    <script>
+
+        function goBack(){
+            window.history.back();
+        }
+
+        function navigateTo(){
+            window.location.href = '/penjadwalan/pilih-mahasiswa';
+        }
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const selectedStudents = JSON.parse(localStorage.getItem('mahasiswaTerpilih'));
+            
+            document.getElementById('kirim').addEventListener('click', function(){
+                let tanggal = document.getElementById('tanggal').value;
+                let waktu = document.getElementById('waktu').value;
+                let tempat = document.getElementById('tempat').value;
+                let pesan = document.getElementById('pesan').value;
+
+                let detailJanji = {
+                    tanggal: tanggal,
+                    waktu: waktu,
+                    tempat: tempat,
+                    pesan: pesan,
+                    students: selectedStudents
+                }
+
+                fetch('/penjadwalan/kirim-janji', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify(detailJanji)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success){
+                        console.log("janji berhasil disimpan");
+                        localStorage.removeItem('mahasiswaTerpilih');
+                    } else{
+                        console.log("janji gagal disimpan");
+                    }
+                });
+            });
+        });
+
+
+    </script>
     
 </body>
 </html>

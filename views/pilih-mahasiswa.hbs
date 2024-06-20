@@ -20,6 +20,85 @@
             <a href="">Riwayat Pertemuan</a>
         </div>
     </nav>
+
+    <div class="pilihan">
+        <div class="mahasiswaChosen">
+
+        </div>
+        <button id="selesai">Selesai</button>
+    </div>
+
+    <table>
+        <div class="pencarian">
+            <input type="search" id="searchInput" placeholder="Cari berdasarkan nama atau NIM atau angkatan">
+            <button type="button" id="searchButton">Cari</button>
+        </div>
+        <thead>
+            <th>NIM</th>
+            <th>Nama mahasiswa</th>
+            <th>Angkatan</th>
+            <th>Pilih</th>
+        </thead>
+    
+        <tbody>
+            {{#each daftarMahasiswa}}
+            <tr>
+                <td><p class="nimChosen">{{ this.nim }}</p></td>
+                <td><p class="namaChosen">{{ this.nama_mahasiswa }}</p></td>
+                <td><p class="angkatanChosen">{{ this.angkatan }}</p></td>
+                <td><input type="checkbox" class="mahasiswaCheckbox" onclick="copyElement(this)"></td>
+            </tr>
+            {{/each }}
+        </tbody>
+    </table>
+
+    <script>
+
+        document.getElementById('selesai').addEventListener('click', function() {
+            let mahasiswaTerpilih = [];
+            document.querySelectorAll('.mahasiswaCheckbox:checked').forEach(function(checkbox){
+                let baris = checkbox.closest('tr');
+                let student = {
+                    nim: baris.querySelector('.nimChosen').innerText,
+                    nama_mahasiswa: baris.querySelector('.namaChosen').innerText,
+                    angkatan: baris.querySelector('.angkatanChosen').innerText
+                };
+                mahasiswaTerpilih.push(student);
+            });
+            if (mahasiswaTerpilih.length === 0){
+                alert ("Pilih minimal satu mahasiswa");
+                return;
+            }
+            localStorage.setItem('mahasiswaTerpilih', JSON.stringify(mahasiswaTerpilih));
+            console.log("data mahasiswa tersimpan ke localstorage");
+            window.location.href = '/penjadwalan/janji-dosen';
+        });
+
+    </script>
+
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function copyElement(checkbox){
+            var namaMahasiswa = checkbox.closest('tr').querySelector('.namaChosen').textContent;
+            var pilhanDiv = document.querySelector('.mahasiswaChosen');
+
+            if (checkbox.checked == true){
+                var p = document.createElement('p');
+                p.textContent = namaMahasiswa;
+                pilhanDiv.appendChild(p);
+            } else {
+                var pHapus = Array.from(pilhanDiv.querySelectorAll('p')).find(p => p.textContent === namaMahasiswa);
+                if(pHapus){
+                    pilhanDiv.removeChild(pHapus);
+                }
+            }
+        }
+    </script>
     
 </body>
 </html>

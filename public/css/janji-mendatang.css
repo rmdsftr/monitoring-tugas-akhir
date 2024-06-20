@@ -83,7 +83,7 @@ table{
     width: 92%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2%;
+    margin-top: 12%;
     margin-bottom: 4%;
     font-size: 15px;
     font-family: 'Poppins';
@@ -112,91 +112,18 @@ tbody tr:nth-of-type(even){
     background-color: white;
 }
 
-.pencarian{
-    margin-top: 2%;
-    display: flex;
-    width: 92%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.pencarian input{
-    width: 100%;
+table button{
     padding: 10px;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-width: 1px;
-    border-color: #3E6174;
-    border-style: solid;
     font-family: 'Poppins';
-}
-
-.pencarian button{
-    padding: 10px 20px;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    background-color: #729098;
-    border-color: #729098;
-    border-style: solid;
-    font-family: 'Poppins';
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 13px;
     color: white;
-}
-
-.pencarian button:hover{
     background-color: #3E6174;
-    border-color: #3E6174;
-}
-
-.pilihan{
-    margin-top: 10%;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: white;
-    width: 92%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.pilihan p{
-    font-family: 'Poppins';
-    font-size: 12px;
-    padding: 5px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #729098;
-    color: #729098;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-.pilihan p a{
-    text-decoration: none;
-    font-weight: 600;
-    color: #729098;
-}
-
-.pilihan button{
-    padding: 5px 15px;
-    margin: 5px;
-    background-color: #729098;
-    color: white;
-    font-family: 'Poppins';
-    font-weight: 600;
-    font-size: 12px;
     border: 0;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
-.pilihan button:hover{
-    background-color: #3E6174;
+table button:hover{
+    background-color: #033452;
     cursor: pointer;
-}
-
-.mahasiswaChosen {
-    display: flex;
-    flex-wrap: wrap;
 }
