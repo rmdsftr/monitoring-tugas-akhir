@@ -17,9 +17,35 @@
         <div class="menu">
             <a href="" class="active">Upload Progress</a>
             <a href="">Deadline Revisi</a>
-            <a href="">Riwayat Progress</a>
+            <a href="/progress/riwayat-progress">Riwayat Progress</a>
         </div>
     </nav>
+
+    <form action="/upload/kirim-progress" method="post" enctype="multipart/form-data">
+        <div class="input">
+            <label for="">Dosen Pembimbing</label>
+            <input type="text" id="dosen">
+        </div>
+        <div class="input">
+            <label for="">Subjek Dokumen</label>
+            <input type="text" id="subjek" name="subjek">
+        </div>
+        <div class="input">
+            <label for="">Upload File</label>
+            <input type="file" id="dokumen" name="dokumen">
+        </div>
+        <div class="input">
+            <label for="">Pesan untuk dosen</label>
+            <textarea name="pesan" id="pesan" rows="8"></textarea>
+        </div>
+        <button type="submit" id="kirim" class="kirim">KIRIM</button>
+    </form>
+
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+    </script>
     
 </body>
 </html>

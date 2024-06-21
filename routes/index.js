@@ -11,9 +11,16 @@ router.get("/", (req, res) =>{
       nama_dosen: req.session.nama_dosen,
       jumlah: req.session.jumlah
     })
+  } else if(req.session && req.session.nim){
+    res.render("dashboardmahasiswa",{
+      nim: req.session.nim,
+      nama_mahasiswa: req.session.nama_mahasiswa,
+      nama_dosen: req.session.dosen
+    })
   } else {
     res.render("index");
   }
+
 });
 
 router.get("/loginmahasiswa", (req, res) => {
