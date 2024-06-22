@@ -1,7 +1,14 @@
 const mysql = require('mysql');
 const path = require('path');
 const multer = require('multer');
-const progress = require('../models/progress');
+
+const express = require('express');
+const http = require('http')
+const app = express();
+const sockerMiddleware = require('../middleware/socket');
+const server = http.createServer(app);
+const io = sockerMiddleware(server);
+
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -71,6 +78,8 @@ exports.uploadProgress = (req, res) => {
     const tanggalKirim = now.toISOString().split('T')[0]; 
     const waktuKirim = now.toTimeString().split(' ')[0]; 
     const status_progress = "Terkirim";
+    const status_notif = "unread";
+
 
     db.query('SELECT * FROM mahasiswa WHERE nim=?', [nim], (error, hasil) => {
         if(error){
@@ -78,9 +87,23 @@ exports.uploadProgress = (req, res) => {
         }
 
         const nip = hasil[0].nip;
+        const nama_mahasiswa = hasil[0].nama_mahasiswa;
 
-        const query = 'INSERT INTO progress (nim, nip, subjek_dokumen, nama_dokumen, tanggal_kirim, waktu_kirim, chat_mahasiswa, status_progress) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-        db.query(query, [nim, nip, subjek, dokumen, tanggalKirim, waktuKirim, pesan, status_progress], (err, result) => {
+        if(req.file){
+            const notification = {
+                nim: nim,
+                nama_mahasiswa: nama_mahasiswa,
+                subjek_dokumen: subjek,
+                tanggal_kirim: tanggalKirim,
+                waktu_kirim: waktuKirim
+            }
+
+            io.emit('notification', notification);
+            console.log("notifikasi berhasil dikirim");
+        }
+
+        const query = 'INSERT INTO progress (nim, nip, subjek_dokumen, nama_dokumen, tanggal_kirim, waktu_kirim, chat_mahasiswa, status_progress, status_notif) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        db.query(query, [nim, nip, subjek, dokumen, tanggalKirim, waktuKirim, pesan, status_progress, status_notif], (err, result) => {
             if (err) {
                 console.error('Error inserting data: ', err);
                 res.status(500).send('Error inserting data');

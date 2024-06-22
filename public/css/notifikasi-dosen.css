@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+.back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    background-color: #B1C6CB;
+    margin-left: 50px;
+}
+
+.back:hover{
+    background-color: #729098;
+}
+
+.back img{
+    width: 23px;
+    margin-top: 5px;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+}
+
+.menu{
+    margin: auto;
+}
+
+.menu a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-family: 'Poppins';
+    font-size: 13px;
+    margin-left: 70px;
+    margin-right: 70px;
+    padding: 10px 90px;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 25px;
+}
+
+.menu a:hover{
+    background-color: #3E6174;
+    border-color: #3E6174;
+    color: white;
+    font-weight: 600;
+}
+
+.menu .active{
+    background-color: #3E6174;
+    border-color: #3E6174;
+    color: white;
+    font-weight: 700;
+}
+
+.container{
+    margin-top: 12%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.notifikasi{
+    background-color: #D7E2E4;
+    padding: 25px 50px;
+    width: 100%;
+    border-radius: 25px;
+    font-family: 'Poppins';
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.notifikasi h3{
+    margin-top: 3px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.notifikasi h4{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.notifikasi p{
+    font-size: 11px;
+}
+
+.notifikasi button{
+    float: right;
+    padding: 10px 20px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    background-color: white;
+    border: 0;
+    border-radius: 10px;
+}
+
+.notifikasi button:hover{
+    background-color: #3E6174;
+    color: white;
+    cursor: pointer;
+}
+
+.pengirim{
+    display: flex;
+}
+
+.pembatas{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    font-family: 'Poppins';
+    font-size: 12px;
+    color: rgb(144, 144, 144);
+    align-items: center;
+}
+
+.garis{
+    border-bottom: 1px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 87%;
+    border-color: rgb(183, 182, 182);
+    border-style: solid;
+    margin-left: 20px;
+}
+
+.dibuka{
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #729098;
+    padding: 25px 50px;
+    width: 100%;
+    border-radius: 25px;
+    font-family: 'Poppins';
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dibuka h3{
+    margin-top: 3px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.dibuka h4{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dibuka p{
+    font-size: 11px;
+}
+
+.pengirim{
+    display: flex;
+}

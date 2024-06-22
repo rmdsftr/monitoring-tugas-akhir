@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifikasi Dosen</title>
+    <link rel="stylesheet" href="/css/notifikasi-dosen.css">
+</head>
+<body>
+
+    <nav>
+        <div class="back">
+            <a href="javascript:void(0)" onclick="goBack()">
+                <img src="/gambar/left.png" alt="">
+            </a>
+        </div>
+        <div class="menu">
+            <a href="" class="active">Progress Mahasiswa</a>
+            <a href="">Penjadwalan Saya</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        {{#each notifikasi}}
+        {{#if (eq this.status_notif "unread")}}
+        <div class="notifikasi">
+            <div class="pengirim">
+                <h4>{{ this.nim }} &ensp;</h4>
+                <h4>{{ this.nama_mahasiswa }}</h4>
+            </div>
+            <button type="button" data-id="{{ this.id_dokumen }}" onclick="openNotification(this)">Buka</button>
+            <h3>{{ this.subjek_dokumen }}</h3>
+            <p class="tanggal">{{ this.tanggal_kirim }}</p>
+            <p class="waktu">{{ this.waktu_kirim }}</p>
+        </div>
+        {{/if }}
+        {{/each}}
+
+        <div class="pembatas">
+            <p>Yang sudah dibuka</p>
+            <div class="garis"></div>
+        </div>
+
+        {{#each notifikasi}}
+        {{#if (eq this.status_notif "read")}}
+        <div class="dibuka">
+            <div class="pengirim">
+                <h4>{{ this.nim }} &ensp;</h4>
+                <h4>{{ this.nama_mahasiswa }}</h4>
+            </div>
+            <h3>{{ this.subjek_dokumen }}</h3>
+            <p>{{ this.tanggal_kirim }}</p>
+            <p>{{ this.waktu_kirim }}</p>
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+
+    <script src="../middleware/socket.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('notification', (message) => {
+        const container = document.querySelector('.container');
+        const notificationElement = document.createElement('div');
+        notificationElement.classList.add('notifikasi');
+        notificationElement.setAttribute('data-id', message.id_dokumen);
+        notificationElement.setAttribute('onclick', 'openNotification(this)');
+
+        notificationElement.innerHTML = `
+            <div class="pengirim">
+                <h4>${message.nim} &ensp;</h4>
+                <h4>${message.nama_mahasiswa}</h4>
+            </div>
+            <button>Koreksi</button>
+            <h3>${message.subjek_dokumen}</h3>
+            <p>${message.tanggal_kirim}</p>
+            <p>${message.waktu_kirim}</p>
+        `;
+
+        container.insertBefore(notificationElement, container.firstChild);
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+    const container = document.querySelector('.container');
+
+    // Event delegation untuk menangani klik pada tombol "Buka"
+    container.addEventListener('click', function(event) {
+        if (event.target.tagName === 'BUTTON' && event.target.textContent === 'Buka') {
+            openNotification(event.target.parentElement);
+        }
+    });
+});
+
+function openNotification(button) {
+    const id = button.getAttribute('data-id');
+    const notification = button.parentElement;
+
+    fetch('/notifikasi/update-status', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id_dokumen: id })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            notification.classList.remove('notifikasi');
+            notification.classList.add('dibuka');
+            // Hapus event listener dari tombol "Buka"
+            button.removeEventListener('click', function() {
+                openNotification(button);
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error updating notification status:', error);
+    });
+}
+
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tanggalElements = document.querySelectorAll('.tanggal');
+            tanggalElements.forEach(function (el) {
+                const originalDate = new Date(el.textContent);
+                if (!isNaN(originalDate)) {
+                    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                    el.textContent = originalDate.toLocaleDateString('id-ID', options);
+                } else {
+                    console.error("Invalid date:", el.textContent);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const waktuElements = document.querySelectorAll('.waktu');
+            waktuElements.forEach(function (el) {
+                const originalTime = el.textContent;
+                if (originalTime) {
+                    const formattedTime = originalTime.slice(0, 5).replace(':', '.') + ' WIB';
+                    el.textContent = formattedTime;
+                } else {
+                    console.error("Invalid time:", el.textContent);
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
