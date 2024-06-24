@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/halaman-koreksi.css">
+</head>
+<body>
+
+    <nav>
+        <div class="back">
+            <a href="javascript:void(0)" onclick="goBack()">
+                <img src="/gambar/left.png" alt="">
+            </a>
+        </div>
+
+        {{#each progressMahasiswa}}
+        <div class="menu">
+            <div class="pengirim">
+                <h3>{{ this.nim }} &ensp;</h3>
+                <h3>{{ this.nama_mahasiswa }}</h3>
+            </div>
+            <div class="dikirim">
+                <p class="tanggal">{{ this.tanggal_kirim }}</p>
+                <p class="waktu">{{ this.waktu_kirim }}</p>
+            </div>
+        </div>
+        {{/each}}
+
+    </nav>
+
+    {{#each progressMahasiswa}}
+    <div class="judul">
+        <div class="judul-ta">
+            <h4>Judul TA &emsp;: &nbsp;</h4>
+            <p>{{ this.judul_tugas_akhir }}</p>
+        </div>
+        <div class="subjek">
+            <h4>Subjek &emsp; &ensp; : &nbsp;</h4>
+            <p>{{ this.subjek_dokumen }}</p>
+        </div>
+    </div>
+    {{/each }}
+
+    <div class="container">
+        <div class="header"></div>
+        {{#each progressMahasiswa}}
+        <embed src="/uploads/{{ this.nama_dokumen}}" type="application/pdf" class="pdf-viewer" id="pdf-viewer-{{ this.id }}">
+        {{/each}}
+    </div>
+
+    <div class="roomchat">
+        <div class="mahasiswa">
+            <img src="/gambar/icon profile.png" alt="">
+            {{#each progressMahasiswa}}
+            <div class="bubble">
+                <p>{{ this.chat_mahasiswa }}</p>
+            </div>
+            {{/each }}
+        </div>
+        <div class="dosen">
+            <div class="bubble">
+                <p>selamat siang juga</p>
+            </div>
+        </div>
+    </div>
+
+    <form action="/upload/kirim-koreksi" method="POST" enctype="multipart/form-data">
+        <div class="konten">
+            {{#each progressMahasiswa}}
+            <input type="hidden" name="id_dokumen" id="id_dokumen" value="{{ this.id_dokumen }}">
+            {{/each}}
+            <textarea name="koreksi" id="koreksi" rows="2" placeholder="Tulis masukan dan koreksi di sini"></textarea>
+            <button type="submit" name="submit" id="submit">Kirim</button>
+        </div>
+    </form>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tanggalElements = document.querySelectorAll('.tanggal');
+            tanggalElements.forEach(function (el) {
+                const originalDate = new Date(el.textContent);
+                if (!isNaN(originalDate)) {
+                    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                    el.textContent = originalDate.toLocaleDateString('id-ID', options);
+                } else {
+                    console.error("Invalid date:", el.textContent);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const waktuElements = document.querySelectorAll('.waktu');
+            waktuElements.forEach(function (el) {
+                const originalTime = el.textContent;
+                if (originalTime) {
+                    const formattedTime = originalTime.slice(0, 5).replace(':', '.') + ' WIB';
+                    el.textContent = formattedTime;
+                } else {
+                    console.error("Invalid time:", el.textContent);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+    </script>
+
+    <script src="../middleware/socket.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('bubbleKoreksi', function (data) {
+                const roomchat = document.querySelector('.roomchat .dosen');
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                bubble.innerHTML = `<p>${data.content}</p>`;
+                roomchat.appendChild(bubble);
+            });
+    </script>
+
+    
+</body>
+</html>

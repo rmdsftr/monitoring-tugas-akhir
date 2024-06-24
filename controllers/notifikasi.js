@@ -30,6 +30,41 @@ exports.updateStatus = (req, res) => {
             res.status(500).send('Error updating status');
             return;
         }
-        res.send({ success: true });
+
+        res.status(200).json({ success: true, id_dokumen });
     });
+}
+
+exports.showDocument = (req, res) => {
+    const { id_dokumen } = req.params;
+
+    db.query('SELECT * FROM progress JOIN mahasiswa ON mahasiswa.nim = progress.nim WHERE progress.id_dokumen = ?', [id_dokumen], (error, results) => {
+        if (error) {
+            console.error('Error fetching updated progress: ', error);
+            return res.status(500).send('Error fetching updated progress');
+        }
+
+        if (results.length === 0) {
+            console.warn('No matching records found for id_dokumen:', id_dokumen);
+            return res.status(404).send('No matching records found');
+        }
+
+        res.render('koreksi-progress', {
+            progressMahasiswa: results
+        });
+    });
+}
+
+exports.koreksiDokumen = (req, res) => {
+    const docId = req.params.docId;
+
+    db.query('SELECT * FROM progress WHERE id_dokumen=?', [docId], (error, results) =>{
+        if(error){
+            console.log(error)
+        }
+
+        const nama_dokumen = results[0].nama_dokumen;
+        res.render('koreksi', { nama_dokumen: nama_dokumen });
+    })
+    
 }

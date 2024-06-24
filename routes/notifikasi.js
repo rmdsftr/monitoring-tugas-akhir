@@ -6,4 +6,10 @@ router.get('/notifikasi-dosen', notificationControllers.showNotifications);
 
 router.post('/update-status', notificationControllers.updateStatus);
 
+router.get('/koreksi-progress/:id_dokumen', notificationControllers.showDocument);
+
+router.get('/koreksi/:docId', notificationControllers.koreksiDokumen);
+
+
+
 module.exports = router;

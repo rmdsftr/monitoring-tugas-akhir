@@ -8,4 +8,6 @@ router.post('/avatar', uploadControllers.avatar);
 
 router.post('/kirim-progress', upload.single('dokumen'), uploadControllers.uploadProgress);
 
+router.post('/kirim-koreksi', uploadControllers.kirimKoreksi);
+
 module.exports = router;

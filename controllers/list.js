@@ -45,9 +45,17 @@ exports.showMahasiswaProfile = (req, res) => {
             console.log(error);
         }
 
-        return res.render("lihatprofilmahasiswa", {
-            nim: nim,
-            profilMahasiswa: results
+        db.query('SELECT * FROM progress WHERE nim=?', [nim], (err, hasil)=>{
+            if(err){
+                console.log(err);
+            }
+
+            return res.render("lihatprofilmahasiswa", {
+                nim: nim,
+                profilMahasiswa: results,
+                daftarProgress: hasil
+            })
         })
+
     })
 }

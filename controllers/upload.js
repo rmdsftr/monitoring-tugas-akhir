@@ -125,3 +125,27 @@ exports.uploadProgress = (req, res) => {
 
     })
 }
+
+exports.kirimKoreksi = (req, res) => {
+    const { id_dokumen, koreksi } = req.body;
+
+    if (!id_dokumen || !koreksi) {
+        return res.status(400).send("id_dokumen and koreksi are required");
+    }
+
+    const now = new Date();
+    const tanggal_koreksi = now.toISOString().split('T')[0];
+    const waktu_koreksi = now.toTimeString().split(' ')[0];
+
+    db.query('INSERT INTO koreksi (id_dokumen, tanggal_koreksi, waktu_koreksi, chat_dosen) VALUES (?,?,?,?)', [id_dokumen, tanggal_koreksi, waktu_koreksi, koreksi], (error, results) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).send("Error inserting koreksi");
+        }
+
+        console.log("koreksi berhasil dikirim");
+        io.emit('bubbleKoreksi', { content: koreksi });
+
+        return res.sendStatus(200);
+    });
+};

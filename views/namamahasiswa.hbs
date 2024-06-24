@@ -43,7 +43,7 @@
             <tr>
                 <td>{{ this.nim }}</td>
                 <td>{{ this.nama_mahasiswa }}</td>
-                <td>{{ this.tanggal_didaftarkan }}</td>
+                <td class="tanggal">{{ this.tanggal_didaftarkan }}</td>
                 <td>{{ this.status_bimbingan }}</td>
                 <td><a href="/list/nim/{{ this.nim }}"><button>Lihat profil</button></a></td>
             </tr>
@@ -55,6 +55,21 @@
         function goBack(){
             window.history.back();
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tanggalElements = document.querySelectorAll('.tanggal');
+            tanggalElements.forEach(function (el) {
+                const originalDate = new Date(el.textContent);
+                if (!isNaN(originalDate)) {
+                    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                    el.textContent = originalDate.toLocaleDateString('id-ID', options);
+                } else {
+                    console.error("Invalid date:", el.textContent);
+                }
+            });
+        });
     </script>
     
 </body>

@@ -159,6 +159,10 @@ textarea{
     border-width: 1px;
     border-style: solid;
     border-color: #3E6174;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-size: 13px;
 }
 
 label{

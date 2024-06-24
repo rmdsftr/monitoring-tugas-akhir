@@ -49,8 +49,8 @@
                 <h4>{{ this.nama_mahasiswa }}</h4>
             </div>
             <h3>{{ this.subjek_dokumen }}</h3>
-            <p>{{ this.tanggal_kirim }}</p>
-            <p>{{ this.waktu_kirim }}</p>
+            <p class="tanggal">{{ this.tanggal_kirim }}</p>
+            <p class="waktu">{{ this.waktu_kirim }}</p>
         </div>
         {{/if}}
         {{/each}}
@@ -84,42 +84,40 @@
 
 
         document.addEventListener('DOMContentLoaded', function () {
-    const container = document.querySelector('.container');
+            const container = document.querySelector('.container');
+            container.addEventListener('click', function(event) {
+                if (event.target.tagName === 'BUTTON' && event.target.textContent === 'Buka') {
+                    openNotification(event.target.parentElement);
+                }
+            });
+        });
 
-    // Event delegation untuk menangani klik pada tombol "Buka"
-    container.addEventListener('click', function(event) {
-        if (event.target.tagName === 'BUTTON' && event.target.textContent === 'Buka') {
-            openNotification(event.target.parentElement);
-        }
-    });
-});
+        function openNotification(button) {
+            const id = button.getAttribute('data-id');
+            const notification = button.parentElement;
 
-function openNotification(button) {
-    const id = button.getAttribute('data-id');
-    const notification = button.parentElement;
-
-    fetch('/notifikasi/update-status', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id_dokumen: id })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            notification.classList.remove('notifikasi');
-            notification.classList.add('dibuka');
-            // Hapus event listener dari tombol "Buka"
-            button.removeEventListener('click', function() {
-                openNotification(button);
+            fetch('/notifikasi/update-status', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id_dokumen: id })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    notification.classList.remove('notifikasi');
+                    notification.classList.add('dibuka');
+                    button.removeEventListener('click', function() {
+                        openNotification(button);
+                    });
+                    window.location.href = `/notifikasi/koreksi-progress/${id}`;
+                }
+            })
+            .catch(error => {
+                console.error('Error updating notification status:', error);
             });
         }
-    })
-    .catch(error => {
-        console.error('Error updating notification status:', error);
-    });
-}
 
 
     </script>
@@ -150,6 +148,12 @@ function openNotification(button) {
                 }
             });
         });
+    </script>
+
+    <script>
+        function goBack(){
+            window.history.back();
+        }
     </script>
     
 </body>

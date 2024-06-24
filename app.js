@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const sessionMiddleware = require('./middleware/session')
 const exphbs = require('express-handlebars');
 
+
 dotenv.config({path : './.env'});
 
 const app = express();

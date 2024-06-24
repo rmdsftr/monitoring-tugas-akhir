@@ -52,69 +52,55 @@
                     <h4>Riwayat progress</h4>
                 </div>
                 <div class="konten">
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-1</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-X</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-X</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-X</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-X</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-X</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-X</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-X</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="isi">
-                            <h5>Progres ke-X</h5>
-                            <p>dd/MM/yyyy hh:mm</p>
-                        </div>
-                    </a>
+                
+                <a href="">
+                    {{#each daftarProgress}}
+                    <div class="isi">
+                        <h5>{{ this.subjek_dokumen }}</h5>
+                        <p class="tanggal">{{ this.tanggal_kirim }}</p>
+                        <p class="waktu">{{ this.waktu_kirim }}</p>
+                    </div>
+                    {{/each}}
+                </a>
+                
                 </div>
             </div>
         </div>
     </main>
 
+
     <script>
         function goBack(){
             window.history.back();
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tanggalElements = document.querySelectorAll('.tanggal');
+            tanggalElements.forEach(function (el) {
+                const originalDate = new Date(el.textContent);
+                if (!isNaN(originalDate)) {
+                    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                    el.textContent = originalDate.toLocaleDateString('id-ID', options);
+                } else {
+                    console.error("Invalid date:", el.textContent);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const waktuElements = document.querySelectorAll('.waktu');
+            waktuElements.forEach(function (el) {
+                const originalTime = el.textContent;
+                if (originalTime) {
+                    const formattedTime = originalTime.slice(0, 5).replace(':', '.') + ' WIB';
+                    el.textContent = formattedTime;
+                } else {
+                    console.error("Invalid time:", el.textContent);
+                }
+            });
+        });
     </script>
     
 </body>

@@ -48,9 +48,6 @@ exports.kirimJanji = (req, res) => {
             console.error("Error inserting data into database:", error);
             return res.status(500).json({ success: false, message: 'Data gagal diinputkan ke database' });
         }
-
-        alert("Jadwal berhasil dibuat");
-        return res.json({ success: true, message: 'Data berhasil diinputkan ke database' });
     });
 };
 
