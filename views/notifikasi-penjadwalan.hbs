@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notif Jadwal</title>
+  <link rel="stylesheet" type="text/css" href="/css/notifikasi-penjadwalan.css">
+</head>
+<body>
+        <div class="button-progres">
+                <button onclick="window.location.href='notifikasi-progres.hbs'">Progress Saya</button>
+                <div class="notification active"></div>
+            </div>
+
+            <div class="button-penjadwalan">
+                <button>Progress Saya</button>
+            </div>
+
+            <div class="pertemuan-list">
+                <div class="pertemuan-item new">
+                  <div class="pertemuan-info">
+                    <div class="pertemuan-status">Pertemuan ke-3</div>
+                    <div class="pertemuan-action">
+                      <button>Lihat detail</button>
+                    </div>
+                  </div>
+                  <div class="pertemuan-description">Dosen pembimbing menerima permintaan pertemuan</div>
+                  <div class="pertemuan-date">[21/06/2024]</div>
+                </div>
+                </div>
+
+                <div class="pertemuan-item new">
+                  <div class="pertemuan-info">
+                    <div class="pertemuan-status">Pertemuan ke-2</div>
+                    <div class="pertemuan-action">
+                      <button>Lihat detail</button>
+                    </div>
+                  </div>
+                  <div class="pertemuan-description">Dosen pembimbing menolak permintaan pertemuan</div>
+                  <div class="pertemuan-date">[20/06/2024]</div>
+                </div>
+
+                <div class="pertemuan-item">
+                  <div class="pertemuan-info">
+                    <div class="pertemuan-status">Pertemuan ke-3</div>
+                    <div class="pertemuan-action">
+                      <button>Lihat detail</button>
+                    </div>
+                  </div>
+                  <div class="pertemuan-description">Dosen pembimbing membalas chat anda</div>
+                  <div class="pertemuan-date">[21/06/2024]</div>
+                </div>
+
+              <button class="back-button">
+                <div class="arrow-left"></div>
+            </button>        
+
+  <script>
+    const notification = document.querySelector('.notification');
+    let notificationCount = 1;
+
+    notification.addEventListener('click', () => {
+      notificationCount--;
+      if (notificationCount <= 0) {
+        notification.classList.remove('active');
+      } else {
+        notification.textContent = notificationCount;
+      }
+    });
+
+    const addNotification = () => {
+      notificationCount++;
+      notification.classList.add('active');
+      notification.textContent = notificationCount;
+    };
+
+    setTimeout(addNotification, 3000);
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const newItems = document.querySelectorAll('.pertemuan-item.new');
+  newItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      item.classList.remove('new');
+    });
+  });
+});
+  </script>
+</body>
+</html>

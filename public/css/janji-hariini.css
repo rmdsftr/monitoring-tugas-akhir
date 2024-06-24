@@ -1,0 +1,171 @@
+body {
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    .button-buatjanji {
+        position: absolute;
+        top: 0;
+        left: 380px; 
+        margin-top: 50px;
+        margin-left: 50; 
+        z-index: 1;
+}         
+.button-buatjanji button {
+            padding: 12px 35px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: 1px solid;
+            border-radius: 25px;
+            font-size: larger;
+            font-weight: bolder;
+            }
+
+.button-buatjanji button:hover {
+                background-color: #29536D;
+                }
+
+            .button-hariini {
+                position: absolute;
+                top: 0;
+                left: 590px; 
+                margin-top: 50px;
+                margin-left: 50; 
+                z-index: 1;
+      }         
+                .button-hariini button {
+                    padding: 12px 35px;
+                    cursor: pointer;
+                    background-color: #29536D;
+                    color: #fff;
+                    border: none;
+                    border-radius: 25px;
+                    font-size: larger;
+                    font-weight: bolder;
+                    }
+
+                    .button-mendatang {
+                        position: absolute;
+                        top: 0;
+                        left: 770px; 
+                        margin-top: 50px;
+                        margin-left: 50; 
+                        z-index: 1;
+              }         
+                        .button-mendatang button {
+                            padding: 12px 35px;
+                            cursor: pointer;
+                            background-color: white;
+                            color: black;
+                            border: 1px solid;
+                            border-radius: 25px;
+                            font-size: larger;
+                            font-weight: bolder;
+                            }
+                                  
+                        .button-mendatang button:hover {
+                            background-color: #29536D;
+                            }
+
+                            .button-riwayat {
+                                position: absolute;
+                                top: 0;
+                                right: 360px; 
+                                margin-top: 50px;
+                                margin-left: 50; 
+                                z-index: 1;
+                      }         
+                                .button-riwayat button {
+                                    padding: 12px 35px;
+                                    cursor: pointer;
+                                    background-color: white;
+                                    color: black;
+                                    border: 1px solid;
+                                    border-radius: 25px;
+                                    font-size: larger;
+                                    font-weight: bolder;
+                                    }
+                                          
+                                .button-riwayat button:hover {
+                                    background-color: #29536D;
+                                    }
+
+                                    .container {
+                                        width: 70%;
+                                        max-width: 820px;
+                                        margin: 150px auto 50px 380px;
+                                        height: 180px;
+                                        background-color: #B1C6CB;
+                                        padding: 20px;
+                                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                                        border-radius: 35px;
+                                    }
+
+    
+    h2 {
+        margin-bottom: 20px;
+    }
+    
+    .meeting-info {
+        margin-bottom: 20px;
+    }
+    
+    .info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .info span {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .meeting-action {
+        position: relative;
+        left: 650px; 
+        bottom: 70px;
+        transform: translateY(-50%); 
+      }                              
+
+      .meeting-action button {
+        background-color: #729098; 
+        color: #FFFFFF; 
+        border: none; 
+        border-radius: 15px;
+        padding: 12px 20px; 
+        cursor: pointer; 
+      }
+
+      .meeting-action button:hover {
+        background-color: #29536D;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 55px;
+        left: 200px;
+        background-color: #729098;
+        border: none;
+        padding: 10px 5px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+              
+        .arrow-left {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 10px 10px 10px;
+                border-color: transparent #333 transparent transparent;
+                margin-right: 15px;
+                vertical-align: middle;
+
+              }
+              
+        .back-button:hover {
+                background-color: #29536D;
+              }

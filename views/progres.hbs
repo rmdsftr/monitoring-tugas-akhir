@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Progres</title>
+    <link rel="stylesheet" href="/css/progres.css">
+</head>
+<style>
+        #pesan-sukses {
+          position: fixed;
+          bottom: 50px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #729098 ;
+          color: #fff;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          text-align: center;
+        }
+      </style>
+<body>
+        <div class="dosen-pembimbing">
+                <p><label>Dosen Pembimbing:</label></p>
+                <p><input type="text" id="dosen" value="[Nama dosen pembimbing]" readonly></p>
+              </div>
+
+        <div class="subjek-dokumen">
+                <p><label>Subjek dokumen:</label></p>
+                <p><input type="text" id="subjek_dokumen" name="subjek_dokumen"></p>
+        </div>
+
+	<div class="upload-file">
+                <p><label>Upload File Progress:</label></p>
+                <p><input type="file" id="file" name="file"></p>
+                <span class="format-file"></span>
+        </div>
+
+	<div class="pesan-dosen">
+                <p><label>Pesan untuk dosen:</label></p>
+                <p><textarea id="pesan_dosen" name="pesan_dosen"></textarea></p>
+        </div>
+
+	<div class="button-progres">
+                <button>Buat Progress</button>
+        </div>
+
+        <div class="button-revisi">
+                <button onclick="window.location.href='revisi.hbs'">Deadline Revisi</button>
+        </div>
+
+        <div class="button-riwayat">
+                <button onclick="window.location.href='riwayat-terkirim.hbs'">Riwayat Progress</button>
+        </div>
+
+        <div class="button submit">
+               <button type="submit" id="kirim-button">Submit</button>
+        </div>
+
+        <button class="back-button">
+               <span class="arrow-left"></span>
+        </button>
+
+        <div id="pesan-sukses" style="display: none;">Progres Berhasil dibuat!</div>
+
+        <script>
+          const kirimButton = document.getElementById('kirim-button');
+          const pesanSukses = document.getElementById('pesan-sukses');
+          const dosenInput = document.getElementById('dosen');
+          const subjekDokumenInput = document.getElementById('subjek_dokumen');
+          const fileInput = document.getElementById('file');
+          const pesanDosenInput = document.getElementById('pesan_dosen');
+
+          kirimButton.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            dosenInput.value = '';
+            subjekDokumenInput.value = '';
+            fileInput.value = '';
+            pesanDosenInput.value = '';
+
+            pesanSukses.style.display = 'block';
+          });
+        </script>
+</body>
+</html>

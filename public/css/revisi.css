@@ -1,0 +1,180 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+      
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    }
+
+.button-progres {
+    position: absolute;
+    top: 0;
+    left: 400px;
+    margin-top: 50px;
+    margin-left: 50px;
+    z-index: 1;
+    }
+      
+    .button-progres button {
+        padding: 12px 35px;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        border: 1px solid;
+        border-radius: 25px;
+        font-size: larger;
+        font-weight: bold;
+        }
+      
+    .button-progres button:hover {
+        background-color: #29536D;
+        }
+
+.button-revisi {
+    position: absolute;
+    top: 0;
+    left: 650px;
+    margin-top: 50px;
+    margin-left: 50px;
+    z-index: 1;
+    }
+      
+    .button-revisi button {
+        padding: 12px 35px;
+        cursor: pointer;
+        background-color: #29536D;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        font-size: larger;
+        font-weight: bolder;
+        }
+      
+    .button-revisi button:hover {
+        background-color: #29536D;
+        }
+
+.button-riwayat {
+    position: absolute;
+    top: 0;
+    left: 950px; 
+    margin-top: 50px;
+    margin-left: 50; 
+    z-index: 1;
+    }
+              
+    .button-riwayat button {
+        padding: 12px 35px;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        border: 1px solid;
+        border-radius: 25px;
+        font-size: larger;
+        font-weight: bold;
+        }
+              
+    .button-riwayat button:hover {
+        background-color: #29536D;
+        }
+      
+.app {
+    max-width: 800px;
+    margin: 150px auto;
+    padding: 40px;
+    background-color: #B1C6CB;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 35px;
+    }
+      
+.app-content {
+    padding: 15px;
+    }
+      
+.progress-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+      
+.progress-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    }
+      
+      .progress-item-details {
+        flex: 1;
+      }
+      
+      .progress-item-title {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: black;
+      }
+      
+      .progress-item-subject {
+        font-size: 16px;
+        color: black;
+        margin-bottom: 5px;
+        font-weight: bolder;
+      }
+      
+      .progress-item-date {
+        font-size: 14px;
+        color: black;
+      }
+      
+      .progress-item-deadline {
+        margin-top: 10px;
+      }
+      
+      .progress-item-deadline-label {
+        font-size: 16px;
+        color: black;
+        margin-right: 3px;
+        font-weight: bold;
+      }
+      
+      .progress-item-deadline-date {
+        font-size: 14px;
+        color: black;
+        font-weight: bold;
+
+      }
+      
+      .back-button {
+        position: absolute;
+        top: 55px;
+        left: 200px;
+        background-color: #729098;
+        border: none;
+        padding: 10px 5px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+              
+        .arrow-left {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 10px 10px 10px;
+                border-color: transparent #333 transparent transparent;
+                margin-right: 15px;
+                vertical-align: middle;
+
+              }
+              
+        .back-button:hover {
+                background-color: #29536D;
+              }

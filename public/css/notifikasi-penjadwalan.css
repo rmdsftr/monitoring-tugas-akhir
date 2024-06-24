@@ -1,0 +1,182 @@
+body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      
+      .button-progres {
+                position: absolute;
+                top: 0;
+                left: 450px; 
+                margin-top: 50px;
+                margin-left: 50; 
+                z-index: 1;
+      }         
+                .button-progres button {
+                    padding: 12px 35px;
+                    cursor: pointer;
+                    background-color: white;
+                    color: black;
+                    border: 1px solid;
+                    border-radius: 25px;
+                    font-size: larger;
+                    font-weight: bolder;
+                    }
+                          
+                .button-progres button:hover {
+                    background-color: #29536D;
+                    }
+
+                    .button-penjadwalan {
+                        position: absolute;
+                        top: 0;
+                        left: 900px;
+                        margin-top: 50px;
+                        margin-left: 50px;
+                        z-index: 1;
+                        }
+                          
+                        .button-penjadwalan button {
+                            padding: 12px 35px;
+                            cursor: pointer;
+                            background-color: #29536D;
+                            color: #fff;
+                            border: none;
+                            border-radius: 25px;
+                            font-size: larger;
+                            font-weight: bold;
+                            }
+      
+                            .notification {
+                                position: absolute;
+                                top: -10px;
+                                right: 10px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 50%;
+                                background-color: #29536D;
+                                color: #fff;
+                                font-size: 12px;
+                              }
+                              
+                              .notification.active {
+                                background-color: #B1C6CB;
+                              }
+                              
+                              .notification.active::before {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 8px;
+                                height: 8px;
+                                background-color: #fff;
+                                border-radius: 50%;
+                              }
+
+                              .pertemuan-item.new {
+                                position: relative;
+                                padding: 10px 20px; 
+                                border: none;
+                                border-radius: 25px;
+                                background-color: #B1C6CB;
+                                font-weight: bold;
+                                top: 150px;
+                                left: 280px;
+                                margin: 15px;
+                                max-width: 1000px; 
+                                height: 80px;
+                              }
+                              
+                              .pertemuan-item.new::before {
+                                content: "New!";
+                                position: absolute;
+                                top: 5;
+                                right: 0;
+                                padding: 2px 5px;
+                                border-radius: 5px;
+                                background-color: #29536D;
+                                color: #fff;
+                                font-size: 12px;
+                              }
+
+                              .pertemuan-item {
+                                position: relative;
+                                padding: 20px; 
+                                border: none;
+                                border-radius: 25px;
+                                background-color: #fff;
+                                font-weight: bold;
+                                top: 150px;
+                                left: 280px;
+                                margin: 20px;
+                                width: 1000px; 
+                                height: 80px;
+                              }
+
+                              .pertemuan-status {
+                                margin-top: 10px;
+                                position: relative;
+                               
+                            }
+
+                            .pertemuan-description {
+                                margin-top: 10px;
+                                position: relative;
+                                transform: translateY(-50%);
+                            }
+ 
+                              .pertemuan-date {
+                                font-size: 12px;
+                                color: black;
+                                font-weight: lighter;
+                                margin-top: -5px;
+                              }
+
+                              .pertemuan-action {
+                                position: absolute; 
+                                right: 75px; 
+                                top: 50%; 
+                                transform: translateY(-50%); 
+                              }                              
+
+                              .pertemuan-action button {
+                                background-color: #29536D; 
+                                color: #FFFFFF; 
+                                border: 1px solid; 
+                                border-radius: 23px;
+                                padding: 12px 20px; 
+                                cursor: pointer; 
+                              }
+
+                              .back-button {
+                                position: absolute;
+                                top: 55px;
+                                left: 200px;
+                                background-color: #729098;
+                                border: none;
+                                padding: 10px 5px;
+                                border-radius: 25px;
+                                cursor: pointer;
+                              }
+                                      
+                                .arrow-left {
+                                        display: inline-block;
+                                        width: 0;
+                                        height: 0;
+                                        border-style: solid;
+                                        border-width: 10px 10px 10px 10px;
+                                        border-color: transparent #333 transparent transparent;
+                                        margin-right: 15px;
+                                        vertical-align: middle;
+                        
+                                      }
+                                      
+                                .back-button:hover {
+                                        background-color: #29536D;
+                                      }

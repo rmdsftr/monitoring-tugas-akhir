@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Janji Temu</title>
+        <link rel="stylesheet" href="/css/buat-janji.css">
+</head>
+
+<style>
+  #pesan-sukses {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #729098;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+</style>
+
+<body>
+  <div class="button-buatjanji">
+    <button>Buat Janji</button>
+  </div>
+
+  <div class="button-hariini">
+    <button onclick="window.location.href='janji-hari ini.hbs'">Hari ini</button>
+  </div>
+
+  <div class="button-mendatang">
+    <button onclick="window.location.href='janji-mendatang.hbs'">Mendatang</button>
+  </div>
+
+  <div class="button-riwayat">
+    <button onclick="window.location.href='riwayat-pertemuan.hbs'">Riwayat Pertemuan</button>
+  </div>
+
+  <div class="dosen-pembimbing">
+    <p><label>Dosen Pembimbing</label></p>
+    <p><input type="text" id="dosen" placeholder="[Nama dosen pembimbing]" readonly></p>
+  </div>
+
+  <div class="tanggal">
+    <p><label>Tanggal</label></p>
+    <p><input type="date" id="tanggal"></p>
+  </div>
+
+  <div class="waktu">
+    <p><label>Waktu</label></p>
+    <p><input type="time" id="waktu"></p>
+  </div>
+
+  <div class="tempat">
+    <p><label>Tempat</label></p>
+    <p><input type="text" id="tempat" placeholder="Masukkan tempat pertemuan"></p>
+  </div>
+
+  <div class="pesan-dosen">
+    <p><label>Pesan untuk dosen</label></p>
+    <p><textarea id="pesan_dosen" placeholder="Tulis Pesan untuk Dosen" name="pesan_dosen"></textarea></p>
+  </div>
+
+  <div class="button-kirim">
+    <button type="submit" id="kirim-button">Kirim</button>
+  </div>
+
+  <div id="pesan-sukses" style="display: none;">Pertemuan berhasil dibuat!</div>
+
+  <button class="back-button">
+    <span class="arrow-left"></span>
+  </button>
+
+  <script>
+    const kirimButton = document.getElementById('kirim-button');
+    const pesanSukses = document.getElementById('pesan-sukses');
+    const dosenInput = document.getElementById('dosen');
+    const tanggalInput = document.getElementById('tanggal');
+    const waktuInput = document.getElementById('waktu');
+    const tempatInput = document.getElementById('tempat');
+    const pesanDosenInput = document.getElementById('pesan_dosen');
+
+    kirimButton.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent default form submission
+
+      dosenInput.value = '';
+      tanggalInput.value = '';
+      waktuInput.value = '';
+      tempatInput.value = '';
+      pesanDosenInput.value = '';
+
+      pesanSukses.style.display = 'block';
+    });
+  </script>
+
+</body>

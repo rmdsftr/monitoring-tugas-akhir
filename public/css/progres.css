@@ -1,0 +1,225 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+.dosen-pembimbing {
+        margin-left: 350px;
+        margin-top: 200px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+      
+        .dosen-pembimbing label {
+                font-weight: bold;
+                margin-right: 20px; 
+                font-size: large;
+        }
+      
+        .dosen-pembimbing input[type="text"] {
+                width: 270%;
+                padding: 15px 40px;
+                border: 1px solid #ccc;
+                border-radius: 25px;
+        }
+
+.subjek-dokumen {
+        margin-left: 370px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        }
+              
+        .subjek-dokumen label {
+                font-weight: bold;
+                margin-right: 20px;
+                font-size: large;
+              }
+              
+        .subjek-dokumen input[type="text"] {
+                width: 270%;
+                padding: 15px 40px;
+                border: 1px solid #ccc;
+                border-radius: 25px;
+              }
+
+.upload-file {
+        margin-left: 340px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+              
+        .upload-file label {
+                font-weight: bold;
+                margin-right: 20px;
+                font-size: large;
+              }
+              
+        .upload-file input[type="file"] {
+                position: relative;
+                width: 210%;
+                padding: 12px 40px;
+                border: 1px solid #ccc;
+                border-radius: 25px;
+
+              }
+              
+        .upload-file input[type="file"]::-webkit-file-upload-button {
+                background-color: #29536D;
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
+                padding: 5px 10px;
+                cursor: pointer;
+              }
+              
+        .upload-file input[type="file"]::-webkit-file-upload-button:hover {
+                background-color: #729098;
+              }
+
+.pesan-dosen {
+        margin-left: 360px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+              }
+              
+        .pesan-dosen label {
+                font-weight: bold;
+                margin-right: 20px;
+                font-size: large;
+                width: 150px;
+              }
+              
+        .pesan-dosen textarea {
+                width: 720px;
+                height: 100px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 35px;
+              }
+
+.button-progres {
+        position: absolute;
+        top: 0;
+        left: 400px;
+        margin-top: 50px;
+        margin-left: 50px;
+        z-index: 1;
+      }
+      
+        .button-progres button {
+                padding: 12px 35px;
+                cursor: pointer;
+                background-color: #29536D;
+                color: #fff;
+                border: none;
+                border-radius: 25px;
+                font-size: larger;
+                font-weight: bolder;
+        }
+      
+        .button-progres button:hover {
+                background-color: #29536D;
+        }
+
+.button-revisi {
+        position: absolute;
+        top: 0;
+        left: 650px;
+        margin-top: 50px;
+        margin-left: 50px;
+        z-index: 1;
+      }
+      
+        .button-revisi button {
+                padding: 12px 35px;
+                cursor: pointer;
+                background-color: white;
+                color: black;
+                border: 1px solid;
+                border-radius: 25px;
+                font-size: larger;
+                font-weight: bold;
+        }
+      
+        .button-revisi button:hover {
+                background-color: #29536D;
+        }
+
+.button-riwayat {
+        position: absolute;
+        top: 0;
+        left: 950px; 
+        margin-top: 50px;
+        margin-left: 50; 
+        z-index: 1;
+        }
+              
+        .button-riwayat button {
+                padding: 12px 35px;
+                cursor: pointer;
+                background-color: white;
+                color: black;
+                border: 1px solid;
+                border-radius: 25px;
+                font-size: larger;
+                font-weight: bold;
+              }
+              
+        .button-riwayat button:hover {
+                background-color: #29536D;
+              }
+
+.button.submit {
+        position: absolute;
+        bottom: 80px;
+        right: 300px;
+        margin: 10px;
+        }
+              
+        .button.submit button[type="submit"] {
+                background-color: #729098; 
+                color: #ffffff;
+                border: none;
+                border-radius: 25px;
+                padding: 12px 35px;
+                cursor: pointer;
+                font-size: larger;
+                font-weight: bolder;
+              }
+              
+        .button.submit button[type="submit"]:hover {
+                background-color: #29536D; 
+              }
+
+.back-button {
+        position: absolute;
+        top: 55px;
+        left: 200px;
+        background-color: #729098;
+        border: none;
+        padding: 10px 5px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+              
+        .arrow-left {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 10px 10px 10px;
+                border-color: transparent #333 transparent transparent;
+                margin-right: 15px;
+                vertical-align: middle;
+
+              }
+              
+        .back-button:hover {
+                background-color: #29536D;
+              }

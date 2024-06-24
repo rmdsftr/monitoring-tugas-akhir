@@ -1,0 +1,172 @@
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .button-buatjanji {
+        position: absolute;
+        top: 0;
+        left: 380px; 
+        margin-top: 50px;
+        margin-left: 50; 
+        z-index: 1;
+}         
+.button-buatjanji button {
+            padding: 12px 35px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: 1px solid;
+            border-radius: 25px;
+            font-size: larger;
+            font-weight: bolder;
+            }
+
+.button-buatjanji button:hover {
+                background-color: #29536D;
+                }
+
+            .button-hariini {
+                position: absolute;
+                top: 0;
+                left: 590px; 
+                margin-top: 50px;
+                margin-left: 50; 
+                z-index: 1;
+      }         
+                .button-hariini button {
+                    padding: 12px 35px;
+                    cursor: pointer;
+                    background-color: white;
+                    color: black;
+                    border: 1px solid;
+                    border-radius: 25px;
+                    font-size: larger;
+                    font-weight: bolder;
+                    }
+
+                    .button-hariini button:hover {
+                      background-color: #29536D;
+                      }
+
+                    .button-mendatang {
+                        position: absolute;
+                        top: 0;
+                        left: 770px; 
+                        margin-top: 50px;
+                        margin-left: 50; 
+                        z-index: 1;
+              }         
+                        .button-mendatang button {
+                            padding: 12px 35px;
+                            cursor: pointer;
+                            background-color: white;
+                            color: black;
+                            border: 1px solid;
+                            border-radius: 25px;
+                            font-size: larger;
+                            font-weight: bolder;
+                            }
+
+                            .button-riwayat button:hover {
+                                background-color: #29536D;
+                                }
+
+                            .button-riwayat {
+                                position: absolute;
+                                top: 0;
+                                right: 360px; 
+                                margin-top: 50px;
+                                margin-left: 50; 
+                                z-index: 1;
+                      }         
+                                .button-riwayat button {
+                                    padding: 12px 35px;
+                                    cursor: pointer;
+                                    background-color: #29536D;
+                                    color: #fff;
+                                    border: none;
+                                    border-radius: 25px;
+                                    font-size: larger;
+                                    font-weight: bolder;
+                                    }
+      
+                                    table {
+                                      width: 800px;
+                                      max-width: 800px;
+                                      margin: 150px auto 50px 400px;
+                                      border-collapse: separate;
+                                      border-spacing: 0;
+                                      border-radius: 20px;
+                                      overflow: hidden;
+                                      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                                    }
+                                    
+                                    th, td {
+                                      padding: 15px;
+                                      text-align: center;
+                                      border-bottom: 1px solid #29536D;
+                                      border-right: 1px solid #29536D;
+                                    }
+                                    
+                                    th:first-child, td:first-child {
+                                      border-left: none;
+                                    }
+                                    
+                                    th:last-child, td:last-child {
+                                      border-right: none;
+                                    }
+                                    
+                                    thead {
+                                      background-color: #B1C6CB;
+                                    }
+                                    
+                                    tbody tr:nth-child(even) {
+                                      background-color: #fff;
+                                    }
+                                    
+                                    tbody tr:hover {
+                                      background-color: #e5e5e5;
+                                    }
+                                    
+                                    
+                                    button {
+                                      background-color: #729098;
+                                      color: white;
+                                      padding: 10px 20px;
+                                      margin: 10px 0;
+                                      border: none;
+                                      border-radius: 15px;
+                                      cursor: pointer;
+                                    }
+                                    
+                                    button:hover {
+                                      background-color: #29536D;
+                                    }
+
+      .back-button {
+        position: absolute;
+        top: 55px;
+        left: 200px;
+        background-color: #729098;
+        border: none;
+        padding: 10px 5px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+              
+        .arrow-left {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 10px 10px 10px;
+                border-color: transparent #333 transparent transparent;
+                margin-right: 15px;
+                vertical-align: middle;
+
+              }
+              
+        .back-button:hover {
+                background-color: #29536D;
+              }

@@ -1,0 +1,252 @@
+body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      .button-buatjanji {
+                position: absolute;
+                top: 0;
+                left: 450px; 
+                margin-top: 50px;
+                margin-left: 50; 
+                z-index: 1;
+      }         
+        .button-buatjanji button {
+                    padding: 12px 35px;
+                    cursor: pointer;
+                    background-color: #29536D;
+                    color: #fff;
+                    border: none;
+                    border-radius: 25px;
+                    font-size: larger;
+                    font-weight: bolder;
+                    }
+
+                    .button-hariini {
+                        position: absolute;
+                        top: 0;
+                        left: 640px; 
+                        margin-top: 50px;
+                        margin-left: 50; 
+                        z-index: 1;
+              }         
+                        .button-hariini button {
+                            padding: 12px 35px;
+                            cursor: pointer;
+                            background-color: white;
+                            color: black;
+                            border: 1px solid;
+                            border-radius: 25px;
+                            font-size: larger;
+                            font-weight: bolder;
+                            }
+                                  
+                        .button-hariini button:hover {
+                            background-color: #29536D;
+                            }
+
+                            .button-mendatang {
+                                position: absolute;
+                                top: 0;
+                                left: 820px; 
+                                margin-top: 50px;
+                                margin-left: 50; 
+                                z-index: 1;
+                      }         
+                                .button-mendatang button {
+                                    padding: 12px 35px;
+                                    cursor: pointer;
+                                    background-color: white;
+                                    color: black;
+                                    border: 1px solid;
+                                    border-radius: 25px;
+                                    font-size: larger;
+                                    font-weight: bolder;
+                                    }
+                                          
+                                .button-mendatang button:hover {
+                                    background-color: #29536D;
+                                    }
+
+                                    .button-riwayat {
+                                        position: absolute;
+                                        top: 0;
+                                        right: 300px; 
+                                        margin-top: 50px;
+                                        margin-left: 50; 
+                                        z-index: 1;
+                              }         
+                                        .button-riwayat button {
+                                            padding: 12px 35px;
+                                            cursor: pointer;
+                                            background-color: white;
+                                            color: black;
+                                            border: 1px solid;
+                                            border-radius: 25px;
+                                            font-size: larger;
+                                            font-weight: bolder;
+                                            }
+                                                  
+                                        .button-riwayat button:hover {
+                                            background-color: #29536D;
+                                            }
+
+                                        .dosen-pembimbing {
+                                                margin-left: -20px;
+                                                margin-top: 0px;
+                                                margin-bottom: 450px;
+                                                display: flex;
+                                                align-items: center;
+                                              }
+                                              
+                                                .dosen-pembimbing label {
+                                                        font-weight: bold;
+                                                        margin-right: 20px; 
+                                                        font-size: large;
+                                                }
+                                              
+                                                .dosen-pembimbing input[type="text"] {
+                                                        width: 300%;
+                                                        padding: 15px 40px;
+                                                        border: 1px solid #ccc;
+                                                        border-radius: 25px;
+                                                }
+
+                                        .tanggal {
+                                                        margin-left: -350px;
+                                                        margin-top: 15px;
+                                                        margin-bottom: 300px;
+                                                        display: flex;
+                                                        align-items: center;
+                                                        }
+                                                              
+                                                .tanggal label {
+                                                                font-weight: bold;
+                                                                margin-right: 30px;
+                                                                font-size: large;
+                                                              }
+                                                              
+                                                .tanggal input[type="date"] {
+                                                                width: 400%;
+                                                                padding: 15px 40px;
+                                                                border: 1px solid #ccc;
+                                                                border-radius: 25px;
+                                                              }
+
+                                        .waktu {
+                                                                margin-left: -260px;
+                                                                margin-top: 0px;
+                                                                margin-bottom: 130px;
+                                                                display: flex;
+                                                                align-items: center;
+                                                                }
+                                                                      
+                                                .waktu label {
+                                                                        font-weight: bold;
+                                                                        margin-right: 20px;
+                                                                        font-size: large;
+                                                                      }
+                                                                      
+                                                .waktu input[type="time"] {
+                                                                        width: 510%;
+                                                                        padding: 15px 40px;
+                                                                        border: 1px solid #ccc;
+                                                                        border-radius: 25px;
+                                                                      }
+
+                                                .tempat {
+                                                                        margin-left: -230px;
+                                                                        margin-top: 0px;
+                                                                        margin-bottom: -30px;
+                                                                        display: flex;
+                                                                        align-items: center;
+                                                                      }
+                                                                      
+                                                .tempat label {
+                                                                                font-weight: bold;
+                                                                                margin-right: 20px; 
+                                                                                font-size: large;
+                                                                        }
+                                                                      
+                                                .tempat input[type="text"] {
+                                                                                width: 300%;
+                                                                                padding: 15px 40px;
+                                                                                border: 1px solid #ccc;
+                                                                                border-radius: 25px;
+                                                                        }
+
+                                                .pesan-dosen {
+                                                                                margin-left: -440px;
+                                                                                margin-top: 15px;
+                                                                                margin-bottom: -250px;
+                                                                                display: flex;
+                                                                                align-items: center;
+                                                                                      }
+                                                                                      
+                                                .pesan-dosen label {
+                                                                                        font-weight: bold;
+                                                                                        margin-right: 20px;
+                                                                                        font-size: large;
+                                                                                        width: 150px;
+                                                                                      }
+                                                                                      
+                                                .pesan-dosen textarea {
+                                                                                        width: 830px;
+                                                                                        height: 100px;
+                                                                                        padding: 10px;
+                                                                                        border: 1px solid #ccc;
+                                                                                        border-radius: 35px;
+                                                                                      }
+                                                                                      
+                                                .button-kirim {
+                                                                                        position: absolute;
+                                                                                        bottom: 100px;
+                                                                                        right: 280px;
+                                                                                        margin: 10px;
+                                                                                        }
+                                                                                              
+                                                .button-kirim button[type="submit"] {
+                                                                                                background-color: #729098; 
+                                                                                                color: #ffffff;
+                                                                                                border: none;
+                                                                                                border-radius: 25px;
+                                                                                                padding: 12px 35px;
+                                                                                                cursor: pointer;
+                                                                                                font-size: larger;
+                                                                                                font-weight: bolder;
+                                                                                              }
+                                                                                              
+                                                .button-kirim button[type="submit"]:hover {
+                                                                                                background-color: #29536D; 
+                                                                                              }
+
+      .back-button {
+        position: absolute;
+        top: 55px;
+        left: 200px;
+        background-color: #729098;
+        border: none;
+        padding: 10px 5px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+              
+        .arrow-left {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 10px 10px 10px;
+                border-color: transparent #333 transparent transparent;
+                margin-right: 15px;
+                vertical-align: middle;
+
+              }
+              
+        .back-button:hover {
+                background-color: #29536D;
+              }

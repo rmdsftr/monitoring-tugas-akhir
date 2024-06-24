@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janji Mendatang</title>
+    <link rel="stylesheet" href="/css/janji-mendatang.css">
+</head>
+<body>
+
+  <div class="button-buatjanji">
+    <button onclick="window.location.href='buat-janji.hbs'">Buat Janji</button>
+</div>
+
+<div class="button-hariini">
+  <button onclick="window.location.href='janji-hari ini.hbs'">Hari ini</button>
+</div>
+
+<div class="button-mendatang">
+  <button>Mendatang</button>
+</div>
+
+<div class="button-riwayat">
+    <button onclick="window.location.href='riwayat-pertemuan.hbs'">Riwayat Pertemuan</button>
+</div> 
+
+<button class="back-button">
+  <span class="arrow-left"></span>
+  </button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Pertemuan</th>
+        <th>Nama Dosen</th>
+        <th>Tempat</th>
+        <th>Waktu</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>6</td>
+        <td>[Nama dosen pembimbing]</td>
+        <td>[Ruang dosen]</td>
+        <td>[01/07/2024] 09:00</td>
+        <td>Disetujui</td>
+        <td><button>Chat Dosen</button></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>[Nama dosen pembimbing]</td>
+        <td>[Seminar SI]</td>
+        <td>[05/07/2024] hh:mm</td>
+        <td>Belum disetujui</td>
+        <td><button>Chat Dosen</button></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

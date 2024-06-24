@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notif Progres</title>
+  <link rel="stylesheet" type="text/css" href="/css/notifikasi-progres.css">
+</head>
+<body>
+        <div class="button-progres">
+                <button>Progress Saya</button>
+            </div>
+
+            <div class="button-penjadwalan">
+                <button onclick="window.location.href='notifikasi-penjadwalan.hbs'">Penjadwalan</button>
+                <div class="notification active"></div>
+            </div>
+
+            <div class="progress-list">
+                <div class="progress-item new">
+                  <div class="progress-info">
+                    <div class="progress-status">Progress ke-2</div>
+                    <div class="progress-action">
+                      <button>Lihat detail</button>
+                    </div>
+                  </div>
+                  <div class="progress-description">Telah dikoreksi oleh dosen pembimbing</div>
+                </div>
+                <div class="progress-item new">
+                  <div class="progress-info">
+                    <div class="progress-status">Progress ke-3</div>
+                    <div class="progress-action">
+                      <button>Lihat detail</button>
+                    </div>
+                  </div>
+                  <div class="progress-description">Reminder! Hari ini deadline revisi ya</div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-info">
+                    <div class="progress-status">Progress ke-1</div>
+                    <div class="progress-action">
+                      <button>Lihat detail</button>
+                    </div>
+                  </div>
+                  <div class="progress-description">Telah dikoreksi oleh dosen pembimbing</div>
+                </div>
+              </div>
+
+              <button class="back-button">
+                <div class="arrow-left"></div>
+            </button>        
+
+  <script>
+    const notification = document.querySelector('.notification');
+    let notificationCount = 1;
+
+    notification.addEventListener('click', () => {
+      notificationCount--;
+      if (notificationCount <= 0) {
+        notification.classList.remove('active');
+      } else {
+        notification.textContent = notificationCount;
+      }
+    });
+
+    const addNotification = () => {
+      notificationCount++;
+      notification.classList.add('active');
+      notification.textContent = notificationCount;
+    };
+
+    setTimeout(addNotification, 3000);
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const newItems = document.querySelectorAll('.progress-item.new');
+  newItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      item.classList.remove('new');
+    });
+  });
+});
+  </script>
+</body>
+</html>
